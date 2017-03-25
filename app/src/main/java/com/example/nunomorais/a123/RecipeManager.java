@@ -20,24 +20,28 @@ public class RecipeManager {
     }
 
     public Iterator<Recipe> getAllAvailableRecipes() {
-
         return available_recipes.values().iterator();
     }
 
     public Iterator<Recipe> getAllRecipes() {
-
         return all_recipes.values().iterator();
     }
 
     private void updateAvailableRecipes() {
+
+        for recipe : all_recipes{
+
+
+        }
 
         //TODO
     }
 
     public Recipe createRecipe(String name, String steps, String description, List<Ingredient> ingredients) {
         Recipe recipe = new Recipe(name, steps, description, ingredients);
-        all_recipes.put(recipe);
-        return recipe
+        all_recipes.put(name, recipe);
+        updateAvailableRecipes();
+        return recipe;
 
     }
 }
