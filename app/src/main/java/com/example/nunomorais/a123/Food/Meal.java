@@ -11,9 +11,10 @@ public class Meal {
 
     private List<Food> f;
     private int cal, carbs, protein, fat;
-    private String type;
+    private String name;
 
-    public Meal(List<Food> f) {
+    public Meal(List<Food> f, String name) {
+        this.name = name;
         this.f = f;
 
         Iterator<Food> it = f.iterator();
@@ -21,8 +22,34 @@ public class Meal {
         while(it.hasNext()){
             Food fd = it.next();
 
+            cal += fd.getCalories();
+            carbs += fd.getCarbs();
+            protein += fd.getProteins();
+            fat += fd.getFat();
         }
     }
 
+    public int getCal() {
+        return cal;
+    }
 
+    public int getCarbs() {
+        return carbs;
+    }
+
+    public int getProtein() {
+        return protein;
+    }
+
+    public int getFat() {
+        return fat;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Iterator<Food> getFood(){
+        return f.iterator();
+    }
 }
