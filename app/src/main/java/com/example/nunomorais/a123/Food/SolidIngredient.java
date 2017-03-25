@@ -1,4 +1,6 @@
-package com.example.nunomorais.a123;
+package com.example.nunomorais.a123.Food;
+
+import com.example.nunomorais.a123.Food.Ingredient;
 
 /**
  * Created by Leonardo on 25/03/2017.

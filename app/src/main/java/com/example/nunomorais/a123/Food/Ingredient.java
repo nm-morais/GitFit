@@ -1,4 +1,4 @@
-package com.example.nunomorais.a123;
+package com.example.nunomorais.a123.Food;
 
 /**
  * Created by Leonardo on 25/03/2017.

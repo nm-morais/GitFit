@@ -1,4 +1,6 @@
-package com.example.nunomorais.a123;
+package com.example.nunomorais.a123.Workouts;
+
+import com.example.nunomorais.a123.Workouts.Exercise;
 
 /**
  * Created by messuped on 3/25/17.
