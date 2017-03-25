@@ -1,4 +1,4 @@
-package com.example.nunomorais.a123;
+package com.example.nunomorais.a123.Food;
 
 
 public abstract class Food {

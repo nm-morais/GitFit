@@ -1,4 +1,4 @@
-package com.example.nunomorais.a123;
+package com.example.nunomorais.a123.Workouts;
 
 import java.util.LinkedList;
 import java.util.List;

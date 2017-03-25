@@ -1,5 +1,11 @@
 package com.example.nunomorais.a123;
 
+import com.example.nunomorais.a123.Food.FoodManager;
+import com.example.nunomorais.a123.Food.Ingredient;
+import com.example.nunomorais.a123.Logs.History;
+import com.example.nunomorais.a123.Recipes.Recipe;
+import com.example.nunomorais.a123.Recipes.RecipeManager;
+
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;

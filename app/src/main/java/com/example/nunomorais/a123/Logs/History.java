@@ -1,4 +1,6 @@
-package com.example.nunomorais.a123;
+package com.example.nunomorais.a123.Logs;
+
+import com.example.nunomorais.a123.NoAvailableLogException;
 
 import java.io.Serializable;
 import java.util.Date;
