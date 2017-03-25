@@ -16,7 +16,7 @@ public class FoodManager {
 
 
 
-    TreeMap<String, Food> available_food
+    TreeMap<String, Food> available_food;
 
     public FoodManager() {
         all_food =  new HashMap<>();
