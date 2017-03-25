@@ -1,6 +1,6 @@
 package com.example.nunomorais.a123;
 
-import java.util.HashMap;
+import java.util.Iterator;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -10,7 +10,7 @@ import java.util.TreeMap;
 
 public class FoodManager {
 
-    HashMap<String, Food> all_food; //all the food
+    SortedMap<String, Food> all_food; //all the food
 
     SortedMap<String, Food> available_ingredients; //constantly updated as stock changes TODO
 
@@ -18,8 +18,7 @@ public class FoodManager {
     TreeMap<String, Food> available_food;
 
     public FoodManager() {
-        all_food = new HashMap<>();
-        //all_ingredients = new TreeMap<>();
+        all_food = new TreeMap<>();
         available_ingredients = new TreeMap<>();
     }
 
@@ -48,11 +47,10 @@ public class FoodManager {
     /**
      * if the stock of a food is zero
      * removes the ingredient from the structure of available ingredients
-     *
-     * @param ingredient
      */
-    void updateAvailability(Ingredient ingredient) {
-        if (ingredient.getStock() < 1) available_ingredients.remove(ingredient.getName());
+    void updateAvailability(String name) throws FoodDoesNotExistException {
+        Ingredient ingredient = (Ingredient) this.getFood(name);
+        if (ingredient.getStock() < 1) available_ingredients.remove(name);
         else return;
     }
 
@@ -75,20 +73,33 @@ public class FoodManager {
     }
 
     Food createFood(String type, int calories, int proteins, int carbs, int fat, String name) {
-
+        Food food = null;
         switch (type) {
             case "LIQUID":
-                Food LiquidIngredient = new LiquidIngredient(name, calories, proteins, carbs, fat);
-
-
+                food = new LiquidIngredient(name, calories, proteins, carbs, fat);
+                break;
+            case "SOLID":
+                food = new SolidIngredient(name, calories, proteins, carbs, fat);
+                break;
+            case "COUNTABLE":
+                food = new CountableIngredient(name, calories, proteins, carbs, fat);
+                break;
         }
-
-
+        return food;
     }
+
+    Iterator<Food> ListAvailableIngredients() {
+        return available_ingredients.values().iterator();
+    }
+
+    Iterator<Food> listAllFood() {
+        return all_food.values().iterator();
+    }
+
+
 }
 
 
 
 
 
-}
