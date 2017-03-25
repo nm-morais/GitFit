@@ -14,18 +14,24 @@ public class Log {
     private static final int DEFAULT_CAL = 0;
 
     private List<Meal> meals;
+    private List<Exercise> exercises;
     private int spentCal;
     private Date date;
 
     public Log() {
 
         meals = new LinkedList<Meal>();
+        exercises = new LinkedList<Exercise>();
         spentCal = DEFAULT_CAL;
         date = new Date();
     }
 
     public Iterator<Meal> getMeals() {
         return meals.iterator();
+    }
+
+    public Iterator<Exercise> getExercises(){
+        return exercises.iterator();
     }
 
     public int getSpentCal() {
@@ -35,4 +41,10 @@ public class Log {
     public Date getDate() {
         return date;
     }
+
+    public void addMeal(Meal m){
+        meals.add(m);
+    }
+
+    public void addWorkout()
 }
