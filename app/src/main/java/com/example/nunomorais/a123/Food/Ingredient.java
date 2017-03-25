@@ -13,13 +13,15 @@ public abstract class Ingredient extends Food {
         this.stock = 0;
     }
 
-    @Override
     public int getStock() {
         return stock;
     }
 
-    @Override
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public void removeUnit(){
+        stock--;
     }
 }

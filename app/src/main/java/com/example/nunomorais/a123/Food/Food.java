@@ -3,7 +3,7 @@ package com.example.nunomorais.a123.Food;
 
 public abstract class Food {
 
-    int calories, proteins, carbs, fat, stock;
+    int calories, proteins, carbs, fat;
     String name;
 
     public Food(int calories, int proteins, int carbs, int fat, String name) {
@@ -12,7 +12,6 @@ public abstract class Food {
         this.carbs = carbs;
         this.fat = fat;
         this.name = name;
-        this.stock = 0;
     }
 
     public int getCalories() {
@@ -25,14 +24,6 @@ public abstract class Food {
 
     public int getFat() {
         return fat;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
     }
 
     public String getName() {
