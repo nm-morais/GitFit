@@ -1,5 +1,6 @@
 package com.example.nunomorais.a123.Logs;
 
+import com.example.nunomorais.a123.Food.Food;
 import com.example.nunomorais.a123.Food.Meal;
 import com.example.nunomorais.a123.Workouts.Exercise;
 import com.example.nunomorais.a123.Workouts.Workout;
@@ -14,7 +15,7 @@ import java.util.List;
  * Created by messuped on 3/25/17.
  */
 
-public class Log implements Serializable{
+public class Log implements Serializable {
 
     private static final int DEFAULT_CAL = 0;
 
@@ -37,7 +38,7 @@ public class Log implements Serializable{
         return meals.iterator();
     }
 
-    public Iterator<Exercise> getExercises(){
+    public Iterator<Exercise> getExercises() {
         return exercises.iterator();
     }
 
@@ -49,11 +50,15 @@ public class Log implements Serializable{
         return date;
     }
 
-    public void addMeal(Meal m){
+    public void addMeal(Meal m) {
         meals.add(m);
     }
 
-    public void addWorkout(String type){
+    public void addFoodToMeal(Meal meal, Food food) {
+        meal.addFood(food);
+    }
+
+    public void addWorkout(String type) {
 
     }
 }

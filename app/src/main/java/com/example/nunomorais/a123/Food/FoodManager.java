@@ -61,18 +61,18 @@ public class FoodManager {
      * @return
      * @throws FoodDoesNotExistException
      */
-    boolean isAvailable(String name) throws FoodDoesNotExistException {
+    public boolean isAvailable(String name) throws FoodDoesNotExistException {
         Ingredient food = (Ingredient) this.getFood(name);
         return food.getStock() > 1;
 
     }
 
-    void SetStockToIngredient(String ingredient, int ammount) throws FoodDoesNotExistException {
+    public void SetStockToIngredient(String ingredient, int ammount) throws FoodDoesNotExistException {
         Ingredient food = (Ingredient) this.getFood(ingredient);
         food.setStock(ammount);
     }
 
-    Food createFood(String type, int calories, int proteins, int carbs, int fat, String name) {
+    public Food createFood(String type, int calories, int proteins, int carbs, int fat, String name) {
         Food food = null;
         switch (type) {
             case "LIQUID":
@@ -84,15 +84,18 @@ public class FoodManager {
             case "COUNTABLE":
                 food = new CountableIngredient(name, calories, proteins, carbs, fat);
                 break;
+            case  "CUSTOM":
+                food = new CustomMeal(calories,proteins,carbs,fat,name);
+
         }
         return food;
     }
 
-    Iterator<Food> ListAvailableIngredients() {
+    public Iterator<Food> ListAvailableIngredients() {
         return available_ingredients.values().iterator();
     }
 
-    Iterator<Food> listAllFood() {
+    public Iterator<Food> listAllFood() {
         return all_food.values().iterator();
     }
 

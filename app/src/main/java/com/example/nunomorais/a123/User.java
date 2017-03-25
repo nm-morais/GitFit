@@ -1,5 +1,8 @@
 package com.example.nunomorais.a123;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * Created by messuped on 3/25/17.
  */
@@ -10,12 +13,12 @@ public class User {
     private char sex;
     private double bmi;
     private String name;
+    private List<Integer> weightHistory;
 
-    public User(String name, int age, char sex, double bmi, int height, int weight, int reqCal, int actIndex, int reqCarbs, int reqProtein, int reqFat) {
+    public User(String name, int age, char sex, int height, int weight, int reqCal, int actIndex, int reqCarbs, int reqProtein, int reqFat) {
         this.name = name;
         this.age = age;
         this.sex = sex;
-        this.bmi = bmi;
         this.height = height;
         this.weight = weight;
         this.reqCal = reqCal;
@@ -23,6 +26,9 @@ public class User {
         this.reqCarbs = reqCarbs;
         this.reqProtein = reqProtein;
         this.reqFat = reqFat;
+        this.getBmi();
+        this.weightHistory = new LinkedList<>();
+
 
     }
 
@@ -38,8 +44,13 @@ public class User {
         return height;
     }
 
+    public  void updateWeight(int newWeight) {
+        this.weightHistory.add(newWeight);
+    }
+
     public void setHeight(int height) {
         this.height = height;
+        this.getBmi();
     }
 
     public int getWeight() {
@@ -48,6 +59,7 @@ public class User {
 
     public void setWeight(int weight) {
         this.weight = weight;
+        this.getBmi();
     }
 
     public int getReqCal() {
@@ -99,11 +111,8 @@ public class User {
     }
 
     public double getBmi() {
+        this.bmi = weight / (height / 100 * (height / 100));
         return bmi;
-    }
-
-    public void setBmi(double bmi) {
-        this.bmi = bmi;
     }
 
     public String getName() {

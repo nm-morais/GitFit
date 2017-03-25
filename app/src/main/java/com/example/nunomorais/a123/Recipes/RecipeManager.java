@@ -1,9 +1,6 @@
-package com.example.nunomorais.a123;
+package com.example.nunomorais.a123.Recipes;
 
 import com.example.nunomorais.a123.Food.Ingredient;
-import com.example.nunomorais.a123.Recipes.Recipe;
-import com.example.nunomorais.a123.Recipes.RecipeNotAvailableException;
-import com.example.nunomorais.a123.Recipes.RecipeNotExistingException;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;

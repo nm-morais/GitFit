@@ -4,7 +4,9 @@ import com.example.nunomorais.a123.NoAvailableLogException;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * Created by messuped on 3/25/17.
@@ -14,7 +16,7 @@ import java.util.LinkedHashMap;
 public class History implements Serializable {
 
 
-    private LinkedHashMap<Date, Log> calendar;
+    private Map<Date, Log> calendar;
 
     public History() {
         calendar = new LinkedHashMap<Date, Log>();
@@ -30,6 +32,10 @@ public class History implements Serializable {
         if (l == null) throw new NoAvailableLogException();
 
         return l;
+    }
+
+    public Iterator<Log> getAllHistory(){
+        return this.calendar.values().iterator();
     }
 
 }

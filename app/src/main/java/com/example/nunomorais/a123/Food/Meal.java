@@ -9,17 +9,17 @@ import java.util.List;
 
 public class Meal {
 
-    private List<Food> f;
+    private List<Food> food_list;
     private int cal, carbs, protein, fat;
     private String name;
 
-    public Meal(List<Food> f, String name) {
+    public Meal(List<Food> food_list, String name) {
         this.name = name;
-        this.f = f;
+        this.food_list = food_list;
 
-        Iterator<Food> it = f.iterator();
+        Iterator<Food> it = food_list.iterator();
 
-        while(it.hasNext()){
+        while (it.hasNext()) {
             Food fd = it.next();
 
             cal += fd.getCalories();
@@ -49,7 +49,11 @@ public class Meal {
         return name;
     }
 
-    public Iterator<Food> getFood(){
-        return f.iterator();
+    public Iterator<Food> getFood() {
+        return food_list.iterator();
+    }
+
+    public void addFood(Food food) {
+        this.food_list.add(food);
     }
 }
