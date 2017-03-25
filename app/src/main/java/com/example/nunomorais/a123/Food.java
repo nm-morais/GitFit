@@ -31,6 +31,10 @@ public abstract class Food {
         return stock;
     }
 
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
     public String getName() {
         return name;
     }
@@ -38,10 +42,6 @@ public abstract class Food {
     public int getProteins() {
         return proteins;
 
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
     }
 }
 
