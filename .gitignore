@@ -1,0 +1,6 @@
+/build
+.gradle/
+.idea/runConfigurations.xml
+.idea/workspace.xml
+.idea
+app/build/
