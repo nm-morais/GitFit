@@ -1,12 +1,6 @@
 /build
 .gradle/
-.idea/compiler.xml
-.idea/copyright/
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
+.idea/runConfigurations.xml
 .idea/workspace.xml
+.idea
 app/build/
-app/libs/
-app/src/main/res/drawable/
-gradlew.bat
