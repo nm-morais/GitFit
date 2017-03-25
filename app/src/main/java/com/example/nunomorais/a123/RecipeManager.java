@@ -30,17 +30,22 @@ public class RecipeManager {
     private void updateAvailableRecipes() {
 
 
-        Recipe recipe;
+        Recipe recipe = null;
+        Iterator<Recipe> recipe_iterator = all_recipes.values().iterator();
 
 
+        while (recipe_iterator.hasNext()) {
+            Recipe current = recipe_iterator.next();
+            Iterator<Ingredient> ingredient_iterator = recipe.getIngredientIterator();
 
         }
 
-        //TODO
+
     }
 
-    public Recipe getRecipe(){
 
+    public Recipe getRecipe() {
+        return null; //TODO
     }
 
     public Recipe createRecipe(String name, String steps, String description, List<Ingredient> ingredients) {
