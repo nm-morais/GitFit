@@ -29,4 +29,19 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RecipesActivity.class);
         startActivity(intent);
     }
+
+    public void progressButton(View view){
+        Intent intent = new Intent(this, ProgressActivity.class);
+        startActivity(intent);
+    }
+
+    public void historyButton(View view){
+        Intent intent = new Intent(this, HistoryActivity.class);
+        startActivity(intent);
+    }
+
+    public void userButton(View view){
+        Intent intent = new Intent(this, UserActivity.class);
+        startActivity(intent);
+    }
 }

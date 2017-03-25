@@ -10,24 +10,23 @@
         android:id="@+id/button8"
         android:layout_width="260dp"
         android:layout_height="45dp"
-        android:text="@string/menu_progress"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/history_button" />
+        android:onClick="progressButton"
+        android:text="@string/menu_progress"
+        app:layout_constraintBottom_toTopOf="@+id/history_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/button7"
         android:layout_width="260dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="16dp"
         android:onClick="logButton"
         android:text="@string/menu_log"
-        app:layout_constraintBottom_toTopOf="@+id/inventary_button"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/inventary_button" />
 
     <Button
         android:id="@+id/inventary_button"
@@ -44,11 +43,12 @@
         android:id="@+id/preferences_button"
         android:layout_width="260dp"
         android:layout_height="45dp"
+        android:layout_marginBottom="79dp"
+        android:onClick="userButton"
         android:text="@string/menu_preferences"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="16dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/recipes_button"
@@ -65,9 +65,10 @@
         android:id="@+id/history_button"
         android:layout_width="260dp"
         android:layout_height="45dp"
-        android:text="@string/menu_history"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/preferences_button" />
+        android:onClick="historyButton"
+        android:text="@string/menu_history"
+        app:layout_constraintBottom_toTopOf="@+id/preferences_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 </android.support.constraint.ConstraintLayout>
