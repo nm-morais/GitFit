@@ -6,7 +6,7 @@ package com.example.nunomorais.a123;
 
 public class LiquidIngredient extends Ingredient {
 
-    public LiquidIngredient(String name, int capacity, int proteins, int carbs, int fat, int calories) {
-        super(name, calories, capacity, proteins, carbs, fat);
+    public LiquidIngredient(String name, int proteins, int carbs, int fat, int calories) {
+        super(name, calories, proteins, carbs, fat);
     }
 }

@@ -1,7 +1,7 @@
 package com.example.nunomorais.a123;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by Leonardo on 25/03/2017.
@@ -9,18 +9,17 @@ import java.util.Map;
 
 public class Recipe {
 
-    private String steps, description;
-    private Map<String, Ingredient> ingredients;
     int calories, proteins, carbs, fat;
+    private String steps, description;
+    private List<Ingredient> ingredients;
+    private String name;
 
-    public Recipe(String steps, String description, int calories, int proteins, int carbs, int fat) {
+    public Recipe(String name, String steps, String description, List<Ingredient> ingredients) {
         this.steps = steps;
+        this.name = name;
         this.description = description;
-        ingredients = new HashMap<String, Ingredient>();
-        this.calories = calories;
-        this.proteins = proteins;
-        this.carbs = carbs;
-        this.fat = fat;
+        this.ingredients = ingredients;
+        this.updateMacros();
     }
 
     public String getSteps() {
@@ -39,47 +38,58 @@ public class Recipe {
         this.description = description;
     }
 
-    public Map<String, Ingredient> getIngredients() {
+    private void updateMacros() {
+
+        this.calories = 0;
+        this.carbs = 0;
+        this.proteins = 0;
+
+        Iterator<Ingredient> ingredient_iterator = ingredients.iterator();
+        Ingredient next = null;
+        while (ingredient_iterator.hasNext()) {
+            next = (Ingredient) ingredient_iterator.next();
+            this.calories += next.getCalories();
+            this.carbs += next.getCarbs();
+            this.proteins += next.getProteins();
+        }
+    }
+
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(Ingredient ingredient) {
-        ingredients.put(ingredient.getName(), ingredient);
+    public Iterator getIngredientIterator() {
+        return ingredients.iterator();
     }
 
-    public void removeIngredient(Ingredient ingredient){
-        ingredients.remove(ingredient.getName());
+    public void removeIngredient(Ingredient ingredient) {
+        ingredients.remove(ingredient);
+        this.updateMacros();
     }
 
     public int getCalories() {
         return calories;
     }
 
-    public void setCalories(int calories) {
-        this.calories = calories;
-    }
 
     public int getProteins() {
         return proteins;
-    }
-
-    public void setProteins(int proteins) {
-        this.proteins = proteins;
     }
 
     public int getCarbs() {
         return carbs;
     }
 
-    public void setCarbs(int carbs) {
-        this.carbs = carbs;
-    }
 
     public int getFat() {
         return fat;
     }
 
-    public void setFat(int fat) {
-        this.fat = fat;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

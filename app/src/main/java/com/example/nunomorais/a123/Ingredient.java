@@ -8,12 +8,18 @@ public abstract class Ingredient extends Food {
 
     private int stock;
 
-    public Ingredient(String name, int calories, int capacity, int proteins, int carbs, int fat) {
+    public Ingredient(String name, int calories, int proteins, int carbs, int fat) {
         super(calories, proteins, carbs, fat, name);
-        stock = capacity;
+        this.stock = 0;
     }
 
+    @Override
     public int getStock() {
         return stock;
+    }
+
+    @Override
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 }

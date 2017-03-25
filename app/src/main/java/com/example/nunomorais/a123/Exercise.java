@@ -7,7 +7,7 @@ package com.example.nunomorais.a123;
 public abstract class Exercise {
     private String name;
 
-    public Exercise(String name){
+    public Exercise(String name) {
         this.name = name;
     }
 
