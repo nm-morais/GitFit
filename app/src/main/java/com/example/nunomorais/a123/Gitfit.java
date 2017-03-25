@@ -4,7 +4,8 @@ import com.example.nunomorais.a123.Food.FoodManager;
 import com.example.nunomorais.a123.Food.Ingredient;
 import com.example.nunomorais.a123.Logs.History;
 import com.example.nunomorais.a123.Recipes.Recipe;
-import com.example.nunomorais.a123.Recipes.RecipeManager;
+import com.example.nunomorais.a123.Recipes.RecipeNotExistingException;
+
 
 import java.io.Serializable;
 import java.util.Iterator;
@@ -16,16 +17,16 @@ import java.util.List;
 
 public class Gitfit implements Serializable {
     private FoodManager foodm;
-    private RecipeManager recm;
+    private com.example.nunomorais.a123.RecipeManager recm;
     private History history;
     private User user;
 
 
     public void addRecipe(String name, String steps, String description, List<Ingredient> ingredients){
-        recm.createRecipe(name,steps,descriptions,ingredients);
+        recm.createRecipe(name,steps,description,ingredients);
     }
 
-    public void removeRecipe(String name){
+    public void removeRecipe(String name) throws RecipeNotExistingException {
         recm.removeRecipe(name);
     }
 

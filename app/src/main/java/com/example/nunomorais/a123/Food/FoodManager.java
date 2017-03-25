@@ -1,7 +1,5 @@
 package com.example.nunomorais.a123.Food;
 
-import com.example.nunomorais.a123.FoodDoesNotExistException;
-
 import java.util.Iterator;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -64,13 +62,13 @@ public class FoodManager {
      * @throws FoodDoesNotExistException
      */
     boolean isAvailable(String name) throws FoodDoesNotExistException {
-        Food food = this.getFood(name);
+        Ingredient food = (Ingredient) this.getFood(name);
         return food.getStock() > 1;
 
     }
 
     void SetStockToIngredient(String ingredient, int ammount) throws FoodDoesNotExistException {
-        Food food = this.getFood(ingredient);
+        Ingredient food = (Ingredient) this.getFood(ingredient);
         food.setStock(ammount);
     }
 
