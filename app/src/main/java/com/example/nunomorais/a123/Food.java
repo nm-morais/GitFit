@@ -1,8 +1,6 @@
 package com.example.nunomorais.a123;
 
-//**
- * Created by Leonardo on 25/03/2017.
-         */
+
 
 public abstract class Food {
 

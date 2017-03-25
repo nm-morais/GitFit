@@ -12,7 +12,7 @@ public class FoodManager {
 
     HashMap<String,Food> all_ingredients;
 
-    TreeMap<String, Food> available_food
+    TreeMap<String, Food> available_food;
 
     public FoodManager() {
         map_foods =  new HashMap<>();
