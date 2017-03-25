@@ -24,4 +24,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, InventaryActivity.class);
         startActivity(intent);
     }
+
+    public void recipesButton(View view){
+        Intent intent = new Intent(this, RecipesActivity.class);
+        startActivity(intent);
+    }
 }
