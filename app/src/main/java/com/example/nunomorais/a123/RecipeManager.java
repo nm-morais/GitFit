@@ -2,6 +2,7 @@ package com.example.nunomorais.a123;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -10,13 +11,12 @@ import java.util.List;
 
 public class RecipeManager {
 
-    private HashMap<String, Recipe> all_recipes;
-    private HashMap<String, Recipe> available_recipes;
+    private LinkedHashMap<String, Recipe> all_recipes;
+    private LinkedHashMap<String, Recipe> available_recipes;
 
     public RecipeManager() {
-
-        all_recipes = new HashMap<>();
-        available_recipes = new HashMap<>();
+        all_recipes = new LinkedHashMap<>();
+        available_recipes = new LinkedHashMap<>();
     }
 
     public Iterator<Recipe> getAllAvailableRecipes() {
@@ -32,20 +32,28 @@ public class RecipeManager {
 
         Recipe recipe = null;
         Iterator<Recipe> recipe_iterator = all_recipes.values().iterator();
+        Ingredient ingredient;
+        boolean available;
 
-
+        //PRAY TO THE GODS !!!!
         while (recipe_iterator.hasNext()) {
+            available = true;
             Recipe current = recipe_iterator.next();
             Iterator<Ingredient> ingredient_iterator = recipe.getIngredientIterator();
-
+            while (ingredient_iterator.hasNext() && available == true) {
+                ingredient = ingredient_iterator.next();
+                if(ingredient.getStock() == 0) available = false;
+            }
+            if(available) available_recipes.put(current.getName(),current);
         }
-
 
     }
 
 
-    public Recipe getRecipe() {
-        return null; //TODO
+    public Recipe getRecipe(String name) throws RecipeNotExistingException {
+        Recipe recipe = all_recipes.get(name);
+        if (recipe == null ) throw new RecipeNotExistingException();
+        return recipe;
     }
 
     public Recipe createRecipe(String name, String steps, String description, List<Ingredient> ingredients) {
