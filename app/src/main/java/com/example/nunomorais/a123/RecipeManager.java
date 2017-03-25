@@ -1,6 +1,5 @@
 package com.example.nunomorais.a123;
 
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -42,17 +41,29 @@ public class RecipeManager {
             Iterator<Ingredient> ingredient_iterator = recipe.getIngredientIterator();
             while (ingredient_iterator.hasNext() && available == true) {
                 ingredient = ingredient_iterator.next();
-                if(ingredient.getStock() == 0) available = false;
+                if (ingredient.getStock() == 0) available = false;
             }
-            if(available) available_recipes.put(current.getName(),current);
+            if (available) available_recipes.put(current.getName(), current);
+            else if (available_recipes.containsValue(recipe)) available_recipes.remove(recipe);
         }
 
+    }
+
+    public void cookRecipe(String name) throws RecipeNotExistingException, RecipeNotAvailableException {
+        Recipe recipe = this.getRecipe(name);
+        if (!available_recipes.containsValue(recipe)) throw new RecipeNotAvailableException();
+        Iterator<Ingredient> ingredient_iterator = recipe.getIngredientIterator();
+        while (ingredient_iterator.hasNext()) {
+            Ingredient next_ingredient = ingredient_iterator.next();
+            next_ingredient.setStock(next_ingredient.getStock() - 1);
+        }
+        updateAvailableRecipes();
     }
 
 
     public Recipe getRecipe(String name) throws RecipeNotExistingException {
         Recipe recipe = all_recipes.get(name);
-        if (recipe == null ) throw new RecipeNotExistingException();
+        if (recipe == null) throw new RecipeNotExistingException();
         return recipe;
     }
 
@@ -62,5 +73,12 @@ public class RecipeManager {
         updateAvailableRecipes();
         return recipe;
 
+    }
+
+    public Recipe removeRecipe(String name) throws RecipeNotExistingException {
+        Recipe recipe = this.getRecipe(name);
+        all_recipes.remove(recipe);
+        if (available_recipes.containsValue(recipe)) available_recipes.remove(recipe);
+        return recipe;
     }
 }
