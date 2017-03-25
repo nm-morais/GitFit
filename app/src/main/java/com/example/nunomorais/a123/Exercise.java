@@ -14,4 +14,5 @@ public abstract class Exercise {
     public String getName() {
         return name;
     }
+
 }
