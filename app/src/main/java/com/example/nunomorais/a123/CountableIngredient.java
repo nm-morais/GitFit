@@ -7,7 +7,7 @@ package com.example.nunomorais.a123;
 
 public class CountableIngredient extends Ingredient{
 
-    public CountableIngredient(String name, int calories, int capacity, int proteins, int carbs, int fat) {
-        super(name, calories, capacity, proteins, carbs, fat);
+    public CountableIngredient(String name, int calories, int proteins, int carbs, int fat) {
+        super(name, calories,  proteins, carbs, fat);
     }
 }

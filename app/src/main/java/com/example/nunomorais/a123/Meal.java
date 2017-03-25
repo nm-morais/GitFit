@@ -10,7 +10,7 @@ public class Meal {
     private int cal, carbs, protein, fat;
     private String type;
 
-    public Meal (Food f, int cal, int carbs, int protein, int fat, String type){
+    public Meal(Food f, int cal, int carbs, int protein, int fat, String type) {
         this.f = f;
         this.cal = cal;
         this.carbs = carbs;
