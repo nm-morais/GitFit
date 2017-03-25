@@ -7,7 +7,7 @@ package com.example.nunomorais.a123;
 public class RepetitiveExercise extends Exercise {
     private int reps;
 
-    public RepetitiveExercise(String name, int reps){
+    public RepetitiveExercise(String name, int reps) {
         super(name);
         this.reps = reps;
     }

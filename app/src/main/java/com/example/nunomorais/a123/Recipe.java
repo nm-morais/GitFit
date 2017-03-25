@@ -47,7 +47,7 @@ public class Recipe {
         ingredients.put(ingredient.getName(), ingredient);
     }
 
-    public void removeIngredient(Ingredient ingredient){
+    public void removeIngredient(Ingredient ingredient) {
         ingredients.remove(ingredient.getName());
     }
 
