@@ -1,6 +1,7 @@
 package com.example.nunomorais.a123;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -18,7 +19,7 @@ public class FoodManager {
     TreeMap<String, Food> available_food;
 
     public FoodManager() {
-        all_food = new HashMap<>();
+        all_food = new LinkedHashMap<>();
         //all_ingredients = new TreeMap<>();
         available_ingredients = new TreeMap<>();
     }
