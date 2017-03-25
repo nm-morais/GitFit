@@ -16,15 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".LogActivity"
-            android:label="@string/title_activity_log"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.nunomorais.a123.MainActivity" />
+        <activity android:name=".LogActivity"  android:parentActivityName=".MainActivity">
         </activity>
+        <activity android:name=".InventaryActivity" android:parentActivityName=".MainActivity">
+        </activity>
+        <meta-data
+            android:name="android.support.Parent_Activity"
+            android:value=".MainActivity" />
     </application>
 
 </manifest>
