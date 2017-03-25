@@ -4,16 +4,15 @@ package com.example.nunomorais.a123;
 
 public abstract class Food {
 
-    int calories, proteins, carbs, fat, stock;
-    String name;
+    private int calories, proteins, carbs, fat;
+    private String name;
 
-    public Food(int calories, int proteins, int carbs, int fat, String name, int stock) {
+    public Food(int calories, int proteins, int carbs, int fat, String name) {
         this.calories = calories;
         this.proteins = proteins;
         this.carbs = carbs;
         this.fat = fat;
         this.name = name;
-        this.stock = stock;
     }
 
     public int getCalories() {
@@ -26,10 +25,6 @@ public abstract class Food {
 
     public int getFat() {
         return fat;
-    }
-
-    public int getStock() {
-        return stock;
     }
 
     public String getName() {
