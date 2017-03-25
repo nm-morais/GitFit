@@ -29,12 +29,18 @@ public class RecipeManager {
 
     private void updateAvailableRecipes() {
 
-        for recipe : all_recipes{
+
+        Recipe recipe;
+
 
 
         }
 
         //TODO
+    }
+
+    public Recipe getRecipe(){
+
     }
 
     public Recipe createRecipe(String name, String steps, String description, List<Ingredient> ingredients) {
