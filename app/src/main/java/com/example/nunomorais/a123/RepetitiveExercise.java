@@ -5,10 +5,11 @@ package com.example.nunomorais.a123;
  */
 
 public class RepetitiveExercise extends Exercise {
-    private int reps;
+    private int reps, sets;
 
-    public RepetitiveExercise(String name, int reps) {
+    public RepetitiveExercise(String name, int reps, int sets) {
         super(name);
         this.reps = reps;
+        this.sets = sets;
     }
 }

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 
 //GitFit
 public class MainActivity extends AppCompatActivity {
@@ -16,8 +15,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void Log_Button(){
+    public void logButton(View view){
         Intent intent = new Intent(this, LogActivity.class);
+        startActivity(intent);
+    }
+
+    public void inventaryButton(View view){
+        Intent intent = new Intent(this, InventaryActivity.class);
         startActivity(intent);
     }
 }
