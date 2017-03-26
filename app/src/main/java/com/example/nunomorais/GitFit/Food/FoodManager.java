@@ -109,7 +109,7 @@ public class FoodManager implements Serializable {
 
         while (it.hasNext()){
             Food e = it.next();
-            calTree.put(-1 * e.getCalories(),e);
+            calTree.put(e.getCalories(),e);
         }
 
         return calTree.values().iterator();
