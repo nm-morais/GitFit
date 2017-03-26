@@ -22,8 +22,8 @@ public class History implements Serializable {
         calendar = new LinkedHashMap<Date, Log>();
     }
 
-    public void addLog() {
-        calendar.put(new Date(), new Log());
+    public void addLog(Log log) {
+        calendar.put(new Date(),log);
     }
 
     public Log getLog(Date day) throws NoAvailableLogException {

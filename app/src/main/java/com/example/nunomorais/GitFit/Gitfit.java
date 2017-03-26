@@ -63,7 +63,8 @@ public class Gitfit extends Application implements Serializable {
         Date hours24ago = new Date(new Date().getTime() - millisIn24Hours);
 
         if (timestamp.before(hours24ago)) {
-            history.addLog();
+            history.addLog(this.current_log);
+            this.current_log = new Log();
         }
     }
 
