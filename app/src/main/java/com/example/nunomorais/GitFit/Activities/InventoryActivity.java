@@ -23,7 +23,8 @@ public class InventoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
         Intent intent = getIntent();
-        top = (Gitfit) intent.getSerializableExtra(MainActivity.SEND_TOP);
+        if (intent.hasExtra(MainActivity.SEND_TOP))
+            top = (Gitfit) intent.getSerializableExtra(MainActivity.SEND_TOP);
 
         all_food = top.getInventory();
 

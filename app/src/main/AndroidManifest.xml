@@ -38,7 +38,7 @@
             android:parentActivityName=".Activities.MainActivity"/>
         <activity
             android:name=".Activities.UserActivity"
-            android:parentActivityName=".Activities.MainActivity" />
+            />
 
     </application>
 

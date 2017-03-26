@@ -45,7 +45,7 @@ public class User implements Serializable {
         return height;
     }
 
-    public  void updateWeight(int newWeight) {
+    public void updateWeight(int newWeight) {
         this.weightHistory.add(newWeight);
     }
 
@@ -112,7 +112,9 @@ public class User implements Serializable {
     }
 
     public double getBmi() {
-        this.bmi = weight / (height / 100 * (height / 100));
+
+        this.bmi = (float) weight / ((float) height / 100 * ((float) height / 100));
+        this.bmi = (int) bmi;
         return bmi;
     }
 

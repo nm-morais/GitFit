@@ -92,11 +92,15 @@ public class UserActivity extends AppCompatActivity {
                 else
                     top.createUser(username, age, gender, height, weigth, calories, act_index, carbs, protein, fat);
                 Context context = getApplicationContext();
-                CharSequence text = "User created with sucess!!!";
+                CharSequence text = "User created with success!!!";
                 int duration = Toast.LENGTH_SHORT;
 
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
+
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.putExtra(MainActivity.SEND_TOP,top);
+                startActivity(intent);
 
 
             }
@@ -105,13 +109,18 @@ public class UserActivity extends AppCompatActivity {
             CharSequence text = "Invalid User Settings.";
             int duration = Toast.LENGTH_SHORT;
 
-            Toast toast = Toast.makeText(context, text, duration);
+            Toast toast = Toast.makeText(context, e.getMessage(), duration);
             toast.show();
 
         }
 
 
+
     }
 
-
+    @Override
+    public void onBackPressed() {
+        System.exit(0);
+        return;
+    }
 }
