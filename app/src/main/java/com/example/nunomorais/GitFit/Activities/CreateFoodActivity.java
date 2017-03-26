@@ -13,6 +13,10 @@ import android.widget.Toast;
 import com.example.nunomorais.GitFit.Gitfit;
 import com.example.nunomorais.GitFit.R;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
 public class CreateFoodActivity extends AppCompatActivity {
 
     Gitfit top;
@@ -69,6 +73,7 @@ public class CreateFoodActivity extends AppCompatActivity {
             }
 
             top.addFood(type, food_name, calories, protein, carbs, fat);
+            saveObject(top);
 
             Context context = getApplicationContext();
             CharSequence text = "Food Added.";
@@ -91,6 +96,19 @@ public class CreateFoodActivity extends AppCompatActivity {
 
         }
 
+    }
+    public void saveObject(Gitfit p){
+        try
+        {
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File("/data/save.bin"))); //Select where you wish to save the file...
+            oos.writeObject(p); // write the class as an 'object'
+            oos.flush(); // flush the stream to insure all of the information was written to 'save_object.bin'
+            oos.close();// close the stream
+        }
+        catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
 

@@ -10,9 +10,10 @@ import android.widget.ListView;
 import com.example.nunomorais.GitFit.Gitfit;
 import com.example.nunomorais.GitFit.R;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class InventoryActivity extends AppCompatActivity {
+public class InventoryActivity extends AppCompatActivity implements Serializable {
 
 
     Gitfit top;
@@ -39,7 +40,9 @@ public class InventoryActivity extends AppCompatActivity {
     public void createFood(View view) {
         Intent intent = new Intent(this, CreateFoodActivity.class);
         intent.putExtra(MainActivity.SEND_TOP, top);
+
         startActivity(intent);
+
 
     }
 

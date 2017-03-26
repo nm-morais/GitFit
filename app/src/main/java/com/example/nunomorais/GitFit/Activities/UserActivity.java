@@ -13,6 +13,10 @@ import android.widget.Toast;
 import com.example.nunomorais.GitFit.Gitfit;
 import com.example.nunomorais.GitFit.R;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
 public class UserActivity extends AppCompatActivity {
 
     Gitfit top;
@@ -91,6 +95,7 @@ public class UserActivity extends AppCompatActivity {
                     top.editUser(username, age, gender, height, weigth, calories, act_index, carbs, protein, fat);
                 else
                     top.createUser(username, age, gender, height, weigth, calories, act_index, carbs, protein, fat);
+                saveObject(top);
                 Context context = getApplicationContext();
                 CharSequence text = "User created with success!!!";
                 int duration = Toast.LENGTH_SHORT;
@@ -116,6 +121,19 @@ public class UserActivity extends AppCompatActivity {
 
 
 
+    }
+    public void saveObject(Gitfit p){
+        try
+        {
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File("/data/save.bin"))); //Select where you wish to save the file...
+            oos.writeObject(p); // write the class as an 'object'
+            oos.flush(); // flush the stream to insure all of the information was written to 'save_object.bin'
+            oos.close();// close the stream
+        }
+        catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
     @Override

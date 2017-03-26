@@ -12,6 +12,9 @@ import com.example.nunomorais.GitFit.Food.Ingredient;
 import com.example.nunomorais.GitFit.Gitfit;
 import com.example.nunomorais.GitFit.R;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class create_recipe_activity extends AppCompatActivity {
@@ -42,6 +45,8 @@ public class create_recipe_activity extends AppCompatActivity {
             description = editText.getText().toString();
             ArrayList<Ingredient> ingredients = new ArrayList<>();
             top.addRecipe(name, description,  ingredients);
+            saveObject(top);
+
 
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra(MainActivity.SEND_TOP, top);
@@ -62,6 +67,20 @@ public class create_recipe_activity extends AppCompatActivity {
         Intent intent = new Intent(this, CreateFoodActivity.class);
         intent.putExtra(MainActivity.SEND_TOP, top);
         startActivity(intent);
+    }
+
+    public void saveObject(Gitfit p){
+        try
+        {
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File("/data/save.bin"))); //Select where you wish to save the file...
+            oos.writeObject(p); // write the class as an 'object'
+            oos.flush(); // flush the stream to insure all of the information was written to 'save_object.bin'
+            oos.close();// close the stream
+        }
+        catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
 

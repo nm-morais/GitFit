@@ -8,6 +8,10 @@ import android.view.View;
 import com.example.nunomorais.GitFit.Gitfit;
 import com.example.nunomorais.GitFit.R;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,22 +25,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Intent intent = getIntent();
 
+        //Gitfit top = (Gitfit) loadSerializedObject(new File("/data/save.bin"));
+
         if (intent.hasExtra(SEND_TOP))
             this.top = (Gitfit) intent.getSerializableExtra(MainActivity.SEND_TOP);
 
-        else
-            if(top == null) {
-                top = new Gitfit();
 
-                if (top.getUser() == null) {
-                    intent = new Intent(this, UserActivity.class);
-                    intent.putExtra(SEND_TOP, top);
-                    startActivity(intent);
-                }
+
+        if (top == null) {
+            top = new Gitfit();
+
+        /**    if (top.getUser() == null) {
+                intent = new Intent(this, UserActivity.class);
+                intent.putExtra(SEND_TOP, top);
+                startActivity(intent);
             }
-
-
+         */
+        }
     }
+
+
 
     public void logButton(View view) {
         Intent intent = new Intent(this, LogActivity.class);
@@ -73,6 +81,20 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(SEND_TOP, top);
         startActivity(intent);
 
+    }
+    public Object loadSerializedObject(File f)
+    {
+        try
+        {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
+            Object o = ois.readObject();
+            return o;
+        }
+        catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return null;
     }
 
 }
