@@ -14,6 +14,7 @@ import com.example.nunomorais.GitFit.Recipes.RecipeNotExistingException;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -34,7 +35,6 @@ public class Gitfit extends Application implements Serializable {
         recipe_manager = new RecipeManager();
         food_manager = new FoodManager();
         history = new History();
-        // user = new User();
 
 
     }
@@ -58,7 +58,13 @@ public class Gitfit extends Application implements Serializable {
     }
 
     private void checkIfDayHasPassed() {
-        //TODO
+        long millisIn24Hours = 1000 * 60 * 60 * 24;
+        Date timestamp = new Date();
+        Date hours24ago = new Date(new Date().getTime() - millisIn24Hours);
+
+        if (timestamp.before(hours24ago)) {
+            history.addLog();
+        }
     }
 
     public void editUser(String name, int age, char sex, int height, int weight,
