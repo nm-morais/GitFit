@@ -25,13 +25,13 @@ public class Log implements Serializable {
     private int spentCal;
     private Date date;
 
-    public Log() {
+    public Log(Date d) {
 
         meals = new LinkedList<Meal>();
         exercises = new LinkedList<Exercise>();
         workouts = new LinkedList<Workout>();
         spentCal = DEFAULT_CAL;
-        date = new Date();
+        date = d;
     }
 
     public Iterator<Meal> getMeals() {
