@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.nunomorais.a123">
+    package="com.example.nunomorais.GitFit">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,28 +17,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LogActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".Activities.LogActivity"
+            android:parentActivityName=".Activities.MainActivity" />
         <activity
-            android:name=".InventaryActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".Activities.InventoryActivity"
+            android:parentActivityName=".Activities.MainActivity" />
 
         <meta-data
             android:name="android.support.Parent_Activity"
             android:value=".MainActivity" />
 
         <activity
-            android:name=".RecipesActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".Activities.RecipesActivity"
+            android:parentActivityName=".Activities.MainActivity" />
         <activity
-            android:name=".ProgressActivity"
-            android:parentActivityName=".MainActivity"/>
+            android:name=".Activities.ProgressActivity"
+            android:parentActivityName=".Activities.MainActivity"/>
         <activity
-            android:name=".HistoryActivity"
-            android:parentActivityName=".MainActivity"/>
+            android:name=".Activities.HistoryActivity"
+            android:parentActivityName=".Activities.MainActivity"/>
         <activity
-            android:name=".UserActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".Activities.UserActivity"
+            android:parentActivityName=".Activities.MainActivity" />
 
     </application>
 
