@@ -16,12 +16,12 @@
         android:layout_marginTop="89dp"
         android:text="Available"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toRightOf="@+id/lpIngredient"
+        app:layout_constraintLeft_toRightOf="@+id/lprecipes"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/lpIngredient"
+        android:id="@+id/lprecipes"
         android:layout_width="229dp"
         android:layout_height="406dp"
         android:layout_marginLeft="16dp"
@@ -53,6 +53,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        android:onClick="createRecipe"
         android:text="New Recipe"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/lpIngredient"

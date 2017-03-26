@@ -72,10 +72,10 @@ public class RecipeManager implements Serializable {
         return recipe;
     }
 
-    public Recipe createRecipe(String name, String steps, String description, List<Ingredient> ingredients) {
-        Recipe recipe = new Recipe(name, steps, description, ingredients);
+    public Recipe createRecipe(String name, String description, List<Ingredient> ingredients) {
+        Recipe recipe = new Recipe(name,  description, ingredients);
         all_recipes.put(name, recipe);
-        updateAvailableRecipes();
+        //updateAvailableRecipes();
         return recipe;
 
     }

@@ -22,15 +22,18 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         if (intent.hasExtra(SEND_TOP))
-            top = (Gitfit) intent.getSerializableExtra(MainActivity.SEND_TOP);
-        else
-            top = new Gitfit();
+            this.top = (Gitfit) intent.getSerializableExtra(MainActivity.SEND_TOP);
 
-        if (top.getUser() == null) {
-            intent = new Intent(this, UserActivity.class);
-            intent.putExtra(SEND_TOP, top);
-            startActivity(intent);
-        }
+        else
+            if(top == null) {
+                top = new Gitfit();
+
+                if (top.getUser() == null) {
+                    intent = new Intent(this, UserActivity.class);
+                    intent.putExtra(SEND_TOP, top);
+                    startActivity(intent);
+                }
+            }
 
 
     }

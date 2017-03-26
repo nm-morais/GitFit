@@ -17,21 +17,13 @@ public class Recipe implements Serializable {
     private List<Ingredient> ingredients;
     private String name;
 
-    public Recipe(String name, String steps, String description, List<Ingredient> ingredients) {
-        this.steps = steps;
+    public Recipe(String name, String description, List<Ingredient> ingredients) {
         this.name = name;
         this.description = description;
         this.ingredients = ingredients;
         this.updateMacros();
     }
 
-    public String getSteps() {
-        return steps;
-    }
-
-    public void setSteps(String steps) {
-        this.steps = steps;
-    }
 
     public String getDescription() {
         return description;
@@ -61,7 +53,7 @@ public class Recipe implements Serializable {
         return ingredients;
     }
 
-    public Iterator getIngredientIterator() {
+    public Iterator<Ingredient> getIngredientIterator() {
         return ingredients.iterator();
     }
 

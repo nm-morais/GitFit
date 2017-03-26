@@ -1,18 +1,20 @@
-package com.example.nunomorais.GitFit;
+package com.example.nunomorais.GitFit.Activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.example.nunomorais.GitFit.Activities.MainActivity;
+import com.example.nunomorais.GitFit.Gitfit;
+import com.example.nunomorais.GitFit.R;
 
 public class Display_User extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display__user);
+
+        setContentView(R.layout.activity_display_user);
 
         Intent intent = getIntent();
 

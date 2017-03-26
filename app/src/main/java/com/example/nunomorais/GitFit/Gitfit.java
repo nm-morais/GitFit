@@ -41,7 +41,7 @@ public class Gitfit extends Application implements Serializable {
 
 
     public void addRecipe(String name, String steps, String description, List<Ingredient> ingredients) {
-        recipe_manager.createRecipe(name, steps, description, ingredients);
+        recipe_manager.createRecipe(name, description, ingredients);
     }
 
     public void removeRecipe(String name) throws RecipeNotExistingException {
@@ -53,7 +53,7 @@ public class Gitfit extends Application implements Serializable {
 
     }
 
-    public Iterator<Food> getRecipiesByCal(){
+    public Iterator<Food> getRecipiesByCal() {
         return food_manager.listByCal();
     }
 
@@ -99,13 +99,24 @@ public class Gitfit extends Application implements Serializable {
     public ArrayList<String> getInventory() {
 
         ArrayList<String> to_return = new ArrayList<>();
-        Iterator it = food_manager.ListAvailableIngredients();
+        Iterator it = food_manager.listAllFood();
         while (it.hasNext()) {
             Ingredient next = (Ingredient) it.next();
             to_return.add(next.getName() + " Stock: " + next.getStock());
         }
         return to_return;
     }
+
+    public ArrayList<String> getRecipes() {
+        ArrayList<String> to_return = new ArrayList<>();
+        Iterator it = recipe_manager.getAllRecipes();
+        while (it.hasNext()) {
+            Recipe next = (Recipe) it.next();
+            to_return.add(next.getName());
+        }
+        return to_return;
+    }
+
 
     public Iterator<Food> getAllFoods() {
         return this.food_manager.listAllFood();
@@ -115,8 +126,8 @@ public class Gitfit extends Application implements Serializable {
         food_manager.createFood(type, calories, protein, carbs, fat, name);
     }
 
-    public void setFoodStock(String name, int amount){
-        food_manager.SetStockToIngredient(name,amount);
+    public void setFoodStock(String name, int amount) {
+        food_manager.SetStockToIngredient(name, amount);
     }
 
     public void removeFood(String name) {
@@ -126,6 +137,10 @@ public class Gitfit extends Application implements Serializable {
     public void addMeal(List<Food> food, String name) {
         Meal meal = new Meal(food, name);
         this.current_log.addMeal(meal);
+    }
+
+    public void addRecipe(String name, String description, List<Ingredient> ingredients) {
+        recipe_manager.createRecipe(name, description, ingredients);
     }
 
     public Iterator<Meal> getAllMealsInLog() {
