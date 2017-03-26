@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.nunomorais.GitFit.Display_User;
 import com.example.nunomorais.GitFit.Gitfit;
 import com.example.nunomorais.GitFit.R;
 
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void userButton(View view) {
-        Intent intent = new Intent(this, UserActivity.class);
+        Intent intent = new Intent(this, Display_User.class);
         intent.putExtra(SEND_TOP , top);
         startActivity(intent);
     }
