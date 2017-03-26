@@ -53,6 +53,10 @@ public class Gitfit extends Application implements Serializable {
 
     }
 
+    public Iterator<Food> getRecipiesByCal(){
+        return food_manager.listByCal();
+    }
+
     public Iterator<Recipe> getAllRecipes() {
         return recipe_manager.getAllRecipes();
     }
@@ -109,6 +113,10 @@ public class Gitfit extends Application implements Serializable {
 
     public void addFood(String type, String name, int calories, int protein, int carbs, int fat) {
         food_manager.createFood(type, calories, protein, carbs, fat, name);
+    }
+
+    public void setFoodStock(String name, int amount){
+        food_manager.SetStockToIngredient(name,amount);
     }
 
     public void removeFood(String name) {
