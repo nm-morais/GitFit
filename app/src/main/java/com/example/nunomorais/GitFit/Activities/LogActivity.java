@@ -11,7 +11,7 @@ public class LogActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_log2);
+        setContentView(R.layout.activity_log);
         Intent intent = getIntent();
     }
 }
