@@ -71,6 +71,7 @@ public class FoodManager implements Serializable {
     public void SetStockToIngredient(String ingredient, int amount) throws FoodDoesNotExistException {
         Ingredient food = (Ingredient) this.getFood(ingredient);
         food.setStock(amount);
+        updateAvailability(ingredient);
     }
 
     public Food createFood(String type, int calories, int proteins, int carbs, int fat, String name) {
@@ -87,8 +88,10 @@ public class FoodManager implements Serializable {
                 break;
             case  "CUSTOM":
                 food = new CustomMeal(calories,proteins,carbs,fat,name);
-
+                break;
         }
+        if (!type.equals("CUSTOM"))
+            all_food.put(food.getName(),food);
         return food;
     }
 
@@ -106,7 +109,7 @@ public class FoodManager implements Serializable {
 
         while (it.hasNext()){
             Food e = it.next();
-            calTree.put(-1 * e.getCalories(),e);
+            calTree.put(e.getCalories(),e);
         }
 
         return calTree.values().iterator();

@@ -6,6 +6,8 @@ import java.io.Serializable;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 /**
  * Created by nunomorais on 25/03/2017.
@@ -83,5 +85,17 @@ public class RecipeManager implements Serializable {
         all_recipes.remove(recipe);
         if (available_recipes.containsValue(recipe)) available_recipes.remove(recipe);
         return recipe;
+    }
+
+    public Iterator<Recipe> listByCal(){
+        SortedMap<Integer, Recipe> calTree = new TreeMap<Integer, Recipe>();
+        Iterator<Recipe> it = available_recipes.values().iterator();
+
+        while (it.hasNext()){
+            Recipe e = it.next();
+            calTree.put(e.getCalories(),e);
+        }
+
+        return calTree.values().iterator();
     }
 }

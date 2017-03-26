@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.nunomorais.GitFit.Display_User">
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="13dp"
+        android:layout_marginTop="5dp"
+        android:text="HydroCarbonates"
+        android:textSize="18sp"
+        app:layout_constraintRight_toLeftOf="@+id/display_Proteins"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:text="Age:"
+        android:textAlignment="textStart"
+        android:textSize="18sp"
+        app:layout_constraintRight_toLeftOf="@+id/display_Age"
+        app:layout_constraintTop_toBottomOf="@+id/textView18"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="43dp"
+        android:text="Calories:"
+        android:textSize="18sp"
+        app:layout_constraintRight_toLeftOf="@+id/display_Carbs"
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:text="Proteins"
+        android:textSize="18sp"
+        app:layout_constraintRight_toLeftOf="@+id/display_Fat"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_editor_absoluteY="216dp" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="16dp"
+        android:text="Fats"
+        android:textSize="18sp"
+        app:layout_constraintRight_toLeftOf="@+id/display_ActIndex"
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="14dp"
+        android:text="Activity Index"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/display_Sex"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/display_Fat"
+        android:layout_width="68dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/display_Proteins"
+        tools:layout_editor_absoluteX="134dp" />
+
+    <TextView
+        android:id="@+id/display_Proteins"
+        android:layout_width="68dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/display_Carbs"
+        tools:layout_editor_absoluteX="134dp" />
+
+    <TextView
+        android:id="@+id/display_Name"
+        android:layout_width="68dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="53dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="134dp" />
+
+    <TextView
+        android:id="@+id/display_Age"
+        android:layout_width="68dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/display_Name"
+        tools:layout_editor_absoluteX="134dp" />
+
+    <TextView
+        android:id="@+id/display_Calories"
+        android:layout_width="68dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/display_Age"
+        tools:layout_editor_absoluteX="134dp" />
+
+    <TextView
+        android:id="@+id/display_Carbs"
+        android:layout_width="68dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/display_Calories"
+        tools:layout_editor_absoluteX="134dp" />
+
+    <TextView
+        android:id="@+id/display_ActIndex"
+        android:layout_width="68dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/display_Fat"
+        tools:layout_editor_absoluteX="134dp" />
+
+    <TextView
+        android:id="@+id/display_Sex"
+        android:layout_width="68dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/display_ActIndex"
+        tools:layout_editor_absoluteX="134dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:text="Gender"
+        android:textSize="18sp"
+        app:layout_constraintRight_toLeftOf="@+id/display_Calories"
+        tools:layout_editor_absoluteY="117dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:text="Name:"
+        android:textAlignment="textStart"
+        android:textSize="18sp"
+        app:layout_constraintRight_toLeftOf="@+id/display_Name"
+        tools:layout_editor_absoluteY="53dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
