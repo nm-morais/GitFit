@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, UserActivity.class);
         intent.putExtra(SEND_TOP, top);
         startActivity(intent);
+
     }
 
 }
