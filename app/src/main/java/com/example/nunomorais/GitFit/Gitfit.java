@@ -67,6 +67,16 @@ public class Gitfit extends Application implements Serializable {
         }
     }
 
+    public void createUser(String name, int age, char sex, int height, int weight,
+                           int reqCal, int actIndex, int reqCarbs, int reqProtein, int reqFat) {
+        this.user = new User(name, age, sex, height, weight, reqCal, actIndex, reqCarbs, reqProtein, reqFat);
+
+    }
+
+    public User getUser() {
+        return this.user;
+    }
+
     public void editUser(String name, int age, char sex, int height, int weight,
                          int reqCal, int actIndex, int reqCarbs, int reqProtein, int reqFat) {
         user.setName(name);
