@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.nunomorais.a123.MainActivity">
+    tools:context="com.example.nunomorais.GitFit.Activities.MainActivity">
 
     <Button
         android:id="@+id/button8"
@@ -34,7 +34,7 @@
         android:layout_height="45dp"
         android:layout_marginBottom="16dp"
         android:onClick="inventaryButton"
-        android:text="@string/menu_inventary"
+        android:text="@string/menu_inventory"
         app:layout_constraintBottom_toTopOf="@+id/recipes_button"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
@@ -43,7 +43,7 @@
         android:id="@+id/preferences_button"
         android:layout_width="260dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="79dp"
+        android:layout_marginBottom="108dp"
         android:onClick="userButton"
         android:text="@string/menu_preferences"
         app:layout_constraintBottom_toBottomOf="parent"
