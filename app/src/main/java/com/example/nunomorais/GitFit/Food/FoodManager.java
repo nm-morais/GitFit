@@ -68,9 +68,9 @@ public class FoodManager implements Serializable {
 
     }
 
-    public void SetStockToIngredient(String ingredient, int ammount) throws FoodDoesNotExistException {
+    public void SetStockToIngredient(String ingredient, int amount) throws FoodDoesNotExistException {
         Ingredient food = (Ingredient) this.getFood(ingredient);
-        food.setStock(ammount);
+        food.setStock(amount);
     }
 
     public Food createFood(String type, int calories, int proteins, int carbs, int fat, String name) {
@@ -100,7 +100,17 @@ public class FoodManager implements Serializable {
         return all_food.values().iterator();
     }
 
+    public Iterator<Food> listByCal(){
+        SortedMap<Integer, Food> calTree = new TreeMap<Integer, Food>();
+        Iterator<Food> it = available_ingredients.values().iterator();
 
+        while (it.hasNext()){
+            Food e = it.next();
+            calTree.put(-1 * e.getCalories(),e);
+        }
+
+        return calTree.values().iterator();
+    }
 }
 
 
