@@ -63,7 +63,7 @@ public class Gitfit extends Application implements Serializable {
         Date hours24ago = new Date(new Date().getTime() - millisIn24Hours);
 
         if (timestamp.before(hours24ago)) {
-            history.addLog();
+            this.current_log = history.addLog();
         }
     }
 
@@ -81,11 +81,6 @@ public class Gitfit extends Application implements Serializable {
         user.setReqProtein(reqProtein);
 
     }
-
-    public void createLog() {
-        this.current_log = new Log();
-    }
-
 
     public ArrayList<String> getInventory() {
 
