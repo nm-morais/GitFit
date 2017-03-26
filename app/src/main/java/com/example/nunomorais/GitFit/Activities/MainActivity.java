@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Display_User.class);
         intent.putExtra(SEND_TOP , top);
         startActivity(intent);
+
     }
 
 }
