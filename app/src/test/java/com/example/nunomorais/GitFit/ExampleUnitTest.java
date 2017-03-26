@@ -1,13 +1,11 @@
 package com.example.nunomorais.GitFit;
 
 import com.example.nunomorais.GitFit.Food.Food;
+import com.example.nunomorais.GitFit.Recipes.Recipe;
 
 import org.junit.Test;
 
 import java.util.Iterator;
-import java.util.Map;
-
-import static org.junit.Assert.assertEquals;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -18,7 +16,7 @@ public class ExampleUnitTest {
     Gitfit g = new Gitfit();
 
 
-
+    @Test
     public void testRecipes(){
         g.addFood("liquid","agua",1,1,1,1);
         g.addFood("liquid","aga",0,0,0,0);
@@ -28,7 +26,7 @@ public class ExampleUnitTest {
         g.setFoodStock("a",2);
 
         Iterator<Food> itAll = g.getAllFoods();
-        Iterator<Food> itAv = g.getAvailableRecipes()
+        Iterator<Recipe> itAv = g.getAvailableRecipes();
         Iterator<Food> itCal = g.getRecipiesByCal();
 
         while(itAll.hasNext()){

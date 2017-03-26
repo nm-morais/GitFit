@@ -32,14 +32,12 @@
             android:parentActivityName=".Activities.MainActivity" />
         <activity
             android:name=".Activities.ProgressActivity"
-            android:parentActivityName=".Activities.MainActivity"/>
+            android:parentActivityName=".Activities.MainActivity" />
         <activity
             android:name=".Activities.HistoryActivity"
-            android:parentActivityName=".Activities.MainActivity"/>
-        <activity
-            android:name=".Activities.UserActivity"
-            />
-
+            android:parentActivityName=".Activities.MainActivity" />
+        <activity android:name=".Activities.UserActivity" />
+        <activity android:name=".Activities.CreateFoodActivity"></activity>
     </application>
 
 </manifest>
