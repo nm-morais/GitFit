@@ -43,10 +43,5 @@ public class RecipesActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(this, CreateFoodActivity.class);
-        intent.putExtra(MainActivity.SEND_TOP, top);
-        startActivity(intent);
-    }
+
 }

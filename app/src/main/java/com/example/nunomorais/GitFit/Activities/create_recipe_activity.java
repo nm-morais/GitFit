@@ -44,13 +44,14 @@ public class create_recipe_activity extends AppCompatActivity {
             editText = (EditText) findViewById(R.id.description_recipe);
             description = editText.getText().toString();
             ArrayList<Ingredient> ingredients = new ArrayList<>();
-            top.addRecipe(name, description,  ingredients);
+            top.addRecipe(name, description, ingredients);
             saveObject(top);
 
 
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra(MainActivity.SEND_TOP, top);
             startActivity(intent);
+
         } catch (Exception e) {
             Context context = getApplicationContext();
             CharSequence text = "Failed to add recipe.";
@@ -62,23 +63,14 @@ public class create_recipe_activity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(this, CreateFoodActivity.class);
-        intent.putExtra(MainActivity.SEND_TOP, top);
-        startActivity(intent);
-    }
 
-    public void saveObject(Gitfit p){
-        try
-        {
+    public void saveObject(Gitfit p) {
+        try {
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File("/data/save.bin"))); //Select where you wish to save the file...
             oos.writeObject(p); // write the class as an 'object'
             oos.flush(); // flush the stream to insure all of the information was written to 'save_object.bin'
             oos.close();// close the stream
-        }
-        catch(Exception ex)
-        {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }

@@ -19,12 +19,7 @@ public class ProgressActivity extends AppCompatActivity {
         Intent intent = getIntent();
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(this, CreateFoodActivity.class);
-        intent.putExtra(MainActivity.SEND_TOP, top);
-        startActivity(intent);
-    }
+
 
 
 }
