@@ -3,9 +3,10 @@ package com.example.nunomorais.GitFit;
 import android.app.Application;
 
 import com.example.nunomorais.GitFit.Food.Food;
-import com.example.nunomorais.GitFit.Food.FoodManager;
-import com.example.nunomorais.GitFit.Food.Ingredient;
-import com.example.nunomorais.GitFit.Food.Meal;
+import com.example.nunomorais.GitFit.Food.FoodClass;
+import com.example.nunomorais.GitFit.Food.FoodManagerClass;
+import com.example.nunomorais.GitFit.Food.IngredientClass;
+import com.example.nunomorais.GitFit.Food.MealClass;
 import com.example.nunomorais.GitFit.Logs.History;
 import com.example.nunomorais.GitFit.Logs.Log;
 import com.example.nunomorais.GitFit.Recipes.Recipe;
@@ -24,7 +25,7 @@ import java.util.List;
 
 public class Gitfit extends Application implements Serializable {
 
-    private FoodManager food_manager;
+    private FoodManagerClass food_manager;
     private RecipeManager recipe_manager;
     private History history;
     private User user;
@@ -33,15 +34,15 @@ public class Gitfit extends Application implements Serializable {
     public Gitfit() {
 
         recipe_manager = new RecipeManager();
-        food_manager = new FoodManager();
+        food_manager = new FoodManagerClass();
         history = new History();
 
 
     }
 
 
-    public void addRecipe(String name, String steps, String description, List<Ingredient> ingredients) {
-        recipe_manager.createRecipe(name, description, ingredients);
+    public void addRecipe(String name, String steps, String description, List<IngredientClass> ingredientClasses) {
+        recipe_manager.createRecipe(name, description, ingredientClasses);
     }
 
     public void removeRecipe(String name) throws RecipeNotExistingException {
@@ -101,7 +102,7 @@ public class Gitfit extends Application implements Serializable {
         ArrayList<String> to_return = new ArrayList<>();
         Iterator it = food_manager.listAllFood();
         while (it.hasNext()) {
-            Ingredient next = (Ingredient) it.next();
+            IngredientClass next = (IngredientClass) it.next();
             to_return.add(next.getName() + " Stock: " + next.getStock());
         }
         return to_return;
@@ -135,16 +136,16 @@ public class Gitfit extends Application implements Serializable {
     }
 
     public void addMeal(List<Food> food, String name) {
-        Meal meal = new Meal(food, name);
-        this.current_log.addMeal(meal);
+        MealClass mealClass = new MealClass(food, name);
+        this.current_log.addMeal(mealClass);
     }
 
-    public void addRecipe(String name, String description, List<Ingredient> ingredients) {
-        recipe_manager.createRecipe(name, description, ingredients);
+    public void addRecipe(String name, String description, List<IngredientClass> ingredientClasses) {
+        recipe_manager.createRecipe(name, description, ingredientClasses);
     }
 
-    public Iterator<Meal> getAllMealsInLog() {
-        return this.current_log.getMeals();
+    public Iterator<MealClass> getAllMealsInLog() {
+        return this.current_log.getMealClasses();
     }
 
 

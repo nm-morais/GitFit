@@ -1,40 +1,19 @@
 package com.example.nunomorais.GitFit.Food;
 
-
 import java.io.Serializable;
 
-public abstract class Food implements Serializable {
+/**
+ * Created by nunom on 30/03/2017.
+ */
 
-    int calories, proteins, carbs, fat;
-    String name;
+public interface Food extends Serializable {
+    int getCalories();
 
-    public Food(int calories, int proteins, int carbs, int fat, String name) {
-        this.calories = calories;
-        this.proteins = proteins;
-        this.carbs = carbs;
-        this.fat = fat;
-        this.name = name;
-    }
+    int getCarbs();
 
-    public int getCalories() {
-        return calories;
-    }
+    int getFat();
 
-    public int getCarbs() {
-        return carbs;
-    }
+    String getName();
 
-    public int getFat() {
-        return fat;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getProteins() {
-        return proteins;
-
-    }
+    int getProteins();
 }
-
