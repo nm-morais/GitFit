@@ -1,6 +1,6 @@
 package com.example.nunomorais.GitFit.Recipes;
 
-import com.example.nunomorais.GitFit.Food.Ingredient;
+import com.example.nunomorais.GitFit.Food.IngredientClass;
 
 import java.io.Serializable;
 import java.util.Iterator;
@@ -36,17 +36,17 @@ public class RecipeManager implements Serializable {
 
         Recipe recipe = null;
         Iterator<Recipe> recipe_iterator = all_recipes.values().iterator();
-        Ingredient ingredient;
+        IngredientClass ingredientClass;
         boolean available;
 
         //PRAY TO THE GODS !!!!
         while (recipe_iterator.hasNext()) {
             available = true;
             Recipe current = recipe_iterator.next();
-            Iterator<Ingredient> ingredient_iterator = recipe.getIngredientIterator();
+            Iterator<IngredientClass> ingredient_iterator = recipe.getIngredientIterator();
             while (ingredient_iterator.hasNext() && available == true) {
-                ingredient = ingredient_iterator.next();
-                if (ingredient.getStock() == 0) available = false;
+                ingredientClass = ingredient_iterator.next();
+                if (ingredientClass.getStock() == 0) available = false;
             }
             if (available) available_recipes.put(current.getName(), current);
             else if (available_recipes.containsValue(recipe)) available_recipes.remove(recipe);
@@ -57,10 +57,10 @@ public class RecipeManager implements Serializable {
     public void cookRecipe(String name) throws RecipeNotExistingException, RecipeNotAvailableException {
         Recipe recipe = this.getRecipe(name);
         if (!available_recipes.containsValue(recipe)) throw new RecipeNotAvailableException();
-        Iterator<Ingredient> ingredient_iterator = recipe.getIngredientIterator();
+        Iterator<IngredientClass> ingredient_iterator = recipe.getIngredientIterator();
         while (ingredient_iterator.hasNext()) {
-            Ingredient next_ingredient = ingredient_iterator.next();
-            next_ingredient.setStock(next_ingredient.getStock() - 1);
+            IngredientClass next_ingredientClass = ingredient_iterator.next();
+            next_ingredientClass.setStock(next_ingredientClass.getStock() - 1);
         }
         updateAvailableRecipes();
     }
@@ -72,8 +72,8 @@ public class RecipeManager implements Serializable {
         return recipe;
     }
 
-    public Recipe createRecipe(String name, String description, List<Ingredient> ingredients) {
-        Recipe recipe = new Recipe(name,  description, ingredients);
+    public Recipe createRecipe(String name, String description, List<IngredientClass> ingredientClasses) {
+        Recipe recipe = new Recipe(name,  description, ingredientClasses);
         all_recipes.put(name, recipe);
         //updateAvailableRecipes();
         return recipe;

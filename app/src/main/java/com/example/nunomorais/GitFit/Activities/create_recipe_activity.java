@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.nunomorais.GitFit.Food.Ingredient;
+import com.example.nunomorais.GitFit.Food.IngredientClass;
 import com.example.nunomorais.GitFit.Gitfit;
 import com.example.nunomorais.GitFit.R;
 
@@ -43,8 +43,8 @@ public class create_recipe_activity extends AppCompatActivity {
 
             editText = (EditText) findViewById(R.id.description_recipe);
             description = editText.getText().toString();
-            ArrayList<Ingredient> ingredients = new ArrayList<>();
-            top.addRecipe(name, description, ingredients);
+            ArrayList<IngredientClass> ingredientClasses = new ArrayList<>();
+            top.addRecipe(name, description, ingredientClasses);
             saveObject(top);
 
 

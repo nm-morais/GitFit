@@ -1,6 +1,7 @@
 package com.example.nunomorais.GitFit;
 
 import com.example.nunomorais.GitFit.Food.Food;
+import com.example.nunomorais.GitFit.Food.FoodClass;
 import com.example.nunomorais.GitFit.Recipes.Recipe;
 
 import org.junit.Test;

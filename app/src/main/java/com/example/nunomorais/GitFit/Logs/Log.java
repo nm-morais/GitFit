@@ -1,7 +1,7 @@
 package com.example.nunomorais.GitFit.Logs;
 
-import com.example.nunomorais.GitFit.Food.Food;
-import com.example.nunomorais.GitFit.Food.Meal;
+import com.example.nunomorais.GitFit.Food.FoodClass;
+import com.example.nunomorais.GitFit.Food.MealClass;
 import com.example.nunomorais.GitFit.Workouts.Exercise;
 import com.example.nunomorais.GitFit.Workouts.Workout;
 
@@ -19,7 +19,7 @@ public class Log implements Serializable {
 
     private static final int DEFAULT_CAL = 0;
 
-    private List<Meal> meals;
+    private List<MealClass> mealClasses;
     private List<Exercise> exercises;
     private List<Workout> workouts;
     private int spentCal;
@@ -27,15 +27,15 @@ public class Log implements Serializable {
 
     public Log(Date d) {
 
-        meals = new LinkedList<Meal>();
+        mealClasses = new LinkedList<MealClass>();
         exercises = new LinkedList<Exercise>();
         workouts = new LinkedList<Workout>();
         spentCal = DEFAULT_CAL;
         date = d;
     }
 
-    public Iterator<Meal> getMeals() {
-        return meals.iterator();
+    public Iterator<MealClass> getMealClasses() {
+        return mealClasses.iterator();
     }
 
     public Iterator<Exercise> getExercises() {
@@ -50,12 +50,12 @@ public class Log implements Serializable {
         return date;
     }
 
-    public void addMeal(Meal m) {
-        meals.add(m);
+    public void addMeal(MealClass m) {
+        mealClasses.add(m);
     }
 
-    public void addFoodToMeal(Meal meal, Food food) {
-        meal.addFood(food);
+    public void addFoodToMeal(MealClass mealClass, FoodClass foodClass) {
+        mealClass.addFood(foodClass);
     }
 
     public void addWorkout(String type) {

@@ -3,27 +3,13 @@ package com.example.nunomorais.GitFit.Food;
 import java.io.Serializable;
 
 /**
- * Created by Leonardo on 25/03/2017.
+ * Created by nunom on 30/03/2017.
  */
 
-public abstract class Ingredient extends Food implements Serializable {
+interface Ingredient extends Food, Serializable {
+    int getStock();
 
-    private int stock;
+    void setStock(int stock);
 
-    public Ingredient(String name, int calories, int proteins, int carbs, int fat) {
-        super(calories, proteins, carbs, fat, name);
-        this.stock = 0;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-    public void removeUnit(){
-        stock--;
-    }
+    void removeUnit();
 }

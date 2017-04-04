@@ -76,7 +76,7 @@ public class CreateFoodActivity extends AppCompatActivity {
             saveObject(top);
 
             Context context = getApplicationContext();
-            CharSequence text = "Food Added.";
+            CharSequence text = "FoodClass Added.";
             int duration = Toast.LENGTH_SHORT;
 
             Toast toast = Toast.makeText(context, text, duration);

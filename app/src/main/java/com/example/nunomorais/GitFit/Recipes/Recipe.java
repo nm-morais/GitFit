@@ -1,6 +1,6 @@
 package com.example.nunomorais.GitFit.Recipes;
 
-import com.example.nunomorais.GitFit.Food.Ingredient;
+import com.example.nunomorais.GitFit.Food.IngredientClass;
 
 import java.io.Serializable;
 import java.util.Iterator;
@@ -14,13 +14,13 @@ public class Recipe implements Serializable {
 
     int calories, proteins, carbs, fat;
     private String steps, description;
-    private List<Ingredient> ingredients;
+    private List<IngredientClass> ingredientClasses;
     private String name;
 
-    public Recipe(String name, String description, List<Ingredient> ingredients) {
+    public Recipe(String name, String description, List<IngredientClass> ingredientClasses) {
         this.name = name;
         this.description = description;
-        this.ingredients = ingredients;
+        this.ingredientClasses = ingredientClasses;
         this.updateMacros();
     }
 
@@ -39,26 +39,26 @@ public class Recipe implements Serializable {
         this.carbs = 0;
         this.proteins = 0;
 
-        Iterator<Ingredient> ingredient_iterator = ingredients.iterator();
-        Ingredient next = null;
+        Iterator<IngredientClass> ingredient_iterator = ingredientClasses.iterator();
+        IngredientClass next = null;
         while (ingredient_iterator.hasNext()) {
-            next = (Ingredient) ingredient_iterator.next();
+            next = (IngredientClass) ingredient_iterator.next();
             this.calories += next.getCalories();
             this.carbs += next.getCarbs();
             this.proteins += next.getProteins();
         }
     }
 
-    public List<Ingredient> getIngredients() {
-        return ingredients;
+    public List<IngredientClass> getIngredientClasses() {
+        return ingredientClasses;
     }
 
-    public Iterator<Ingredient> getIngredientIterator() {
-        return ingredients.iterator();
+    public Iterator<IngredientClass> getIngredientIterator() {
+        return ingredientClasses.iterator();
     }
 
-    public void removeIngredient(Ingredient ingredient) {
-        ingredients.remove(ingredient);
+    public void removeIngredient(IngredientClass ingredientClass) {
+        ingredientClasses.remove(ingredientClass);
         this.updateMacros();
     }
 
