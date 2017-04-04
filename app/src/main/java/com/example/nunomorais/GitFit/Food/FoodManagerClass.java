@@ -1,7 +1,7 @@
 package com.example.nunomorais.GitFit.Food;
 
 import java.util.Iterator;
-import java.util.SortedMap;
+import java.util.Map;
 import java.util.TreeMap;
 
 /**
@@ -10,12 +10,9 @@ import java.util.TreeMap;
 
 public class FoodManagerClass implements FoodManager {
 
-    SortedMap<String, Food> all_food; //all the food
+    Map<String, Food> all_food; //all the food
 
-    SortedMap<String, Food> available_ingredients; //constantly updated as stock changes TODO
-
-
-    TreeMap<String, Food> available_food;
+    Map<String, Food> available_ingredients; //constantly updated as stock changes TODO
 
     public FoodManagerClass() {
         all_food = new TreeMap<>();
@@ -40,8 +37,9 @@ public class FoodManagerClass implements FoodManager {
     @Override
     public Food removeFood(String name) throws FoodDoesNotExistException {
         Food toremove = this.getFood(name);
+        if (toremove == null) throw new FoodDoesNotExistException();
         all_food.remove(toremove);
-        if (this.available_food.get(toremove) != null) available_food.remove(toremove);
+        available_ingredients.remove(toremove);
         return toremove;
 
     }
@@ -51,9 +49,8 @@ public class FoodManagerClass implements FoodManager {
      * removes the ingredient from the structure of available ingredients
      */
     void updateAvailability(String name) throws FoodDoesNotExistException {
-        IngredientClass ingredientClass = (IngredientClass) this.getFood(name);
-        if (ingredientClass.getStock() < 1) available_ingredients.remove(name);
-        else return;
+        Ingredient ingredient = (Ingredient) this.getFood(name);
+        if (ingredient.getStock() < 1) available_ingredients.remove(name);
     }
 
     /**
@@ -66,7 +63,7 @@ public class FoodManagerClass implements FoodManager {
     @Override
     public boolean isAvailable(String name) throws FoodDoesNotExistException {
         IngredientClass food = (IngredientClass) this.getFood(name);
-        return food.getStock() > 1;
+        return food.getStock() >= 1;
 
     }
 
@@ -88,10 +85,10 @@ public class FoodManagerClass implements FoodManager {
                 food = new SolidIngredientClass(name, calories, proteins, carbs, fat);
                 break;
             case "COUNTABLE":
-                food = new CountableIngredientClassClass(name, calories, proteins, carbs, fat);
+                food = new CountableIngredientClass(name, calories, proteins, carbs, fat);
                 break;
-            case  "CUSTOM":
-                food = new CustomMealClass(calories,proteins,carbs,fat,name);
+            case "CUSTOM":
+                food = new CustomMealClass(calories, proteins, carbs, fat, name);
                 break;
         }
         if (!type.equals("CUSTOM"))
@@ -109,18 +106,6 @@ public class FoodManagerClass implements FoodManager {
         return all_food.values().iterator();
     }
 
-    @Override
-    public Iterator<Food> listByCal(){
-        SortedMap<Integer, Food> calTree = new TreeMap<Integer, Food>();
-        Iterator<Food> it = available_ingredients.values().iterator();
-
-        while (it.hasNext()){
-            Food e = it.next();
-            calTree.put(e.getCalories(),e);
-        }
-
-        return calTree.values().iterator();
-    }
 }
 
 

@@ -3,7 +3,6 @@ package com.example.nunomorais.GitFit;
 import android.app.Application;
 
 import com.example.nunomorais.GitFit.Food.Food;
-import com.example.nunomorais.GitFit.Food.FoodClass;
 import com.example.nunomorais.GitFit.Food.FoodManagerClass;
 import com.example.nunomorais.GitFit.Food.IngredientClass;
 import com.example.nunomorais.GitFit.Food.MealClass;
@@ -54,9 +53,6 @@ public class Gitfit extends Application implements Serializable {
 
     }
 
-    public Iterator<Food> getRecipiesByCal() {
-        return food_manager.listByCal();
-    }
 
     public Iterator<Recipe> getAllRecipes() {
         return recipe_manager.getAllRecipes();

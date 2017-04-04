@@ -9,8 +9,22 @@ import java.util.Iterator;
 
 interface FoodManager extends Serializable {
 
+
+    /**
+     * returns the food by the name that has been specified
+     * @param name
+     * @return the food where name == name
+     * @throws FoodDoesNotExistException
+     */
     Food getFood(String name) throws FoodDoesNotExistException;
 
+
+    /**
+     * removes the food from all the datastructures that contain it
+     * @param name
+     * @return the removed food
+     * @throws FoodDoesNotExistException
+     */
     Food removeFood(String name) throws FoodDoesNotExistException;
 
     boolean isAvailable(String name) throws FoodDoesNotExistException;
@@ -23,5 +37,4 @@ interface FoodManager extends Serializable {
 
     Iterator<Food> listAllFood();
 
-    Iterator<Food> listByCal();
 }

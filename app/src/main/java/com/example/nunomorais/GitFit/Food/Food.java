@@ -7,6 +7,11 @@ import java.io.Serializable;
  */
 
 public interface Food extends Serializable {
+
+    /**
+     * returns the calorie content
+     * @return
+     */
     int getCalories();
 
     int getCarbs();
