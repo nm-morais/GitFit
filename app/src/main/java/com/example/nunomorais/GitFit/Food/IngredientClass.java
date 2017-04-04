@@ -1,7 +1,5 @@
 package com.example.nunomorais.GitFit.Food;
 
-import java.io.Serializable;
-
 /**
  * Created by Leonardo on 25/03/2017.
  */
@@ -10,8 +8,8 @@ public abstract class IngredientClass extends FoodClass implements Ingredient {
 
     private int stock;
 
-    public IngredientClass(String name, int calories, int proteins, int carbs, int fat) {
-        super(calories, proteins, carbs, fat, name);
+    public IngredientClass(String name, int calories, int proteins, int carbs, int fat, int portion) {
+        super(calories, proteins, carbs, fat, name, portion);
         this.stock = 0;
     }
 
@@ -26,7 +24,7 @@ public abstract class IngredientClass extends FoodClass implements Ingredient {
     }
 
     @Override
-    public void removeUnit(){
-        stock--;
+    public int removeUnit() {
+        return stock--;
     }
 }

@@ -12,6 +12,7 @@ interface FoodManager extends Serializable {
 
     /**
      * returns the food by the name that has been specified
+     *
      * @param name
      * @return the food where name == name
      * @throws FoodDoesNotExistException
@@ -21,6 +22,7 @@ interface FoodManager extends Serializable {
 
     /**
      * removes the food from all the datastructures that contain it
+     *
      * @param name
      * @return the removed food
      * @throws FoodDoesNotExistException
@@ -31,10 +33,12 @@ interface FoodManager extends Serializable {
 
     void SetStockToIngredient(String ingredient, int amount) throws FoodDoesNotExistException;
 
-    Food createFood(String type, int calories, int proteins, int carbs, int fat, String name);
+    Food createFood(String type, int calories, int proteins, int carbs, int fat, String name, int portionSize);
 
     Iterator<Food> ListAvailableIngredients();
 
     Iterator<Food> listAllFood();
+
+    void updateAvailability(String name) throws FoodDoesNotExistException;
 
 }

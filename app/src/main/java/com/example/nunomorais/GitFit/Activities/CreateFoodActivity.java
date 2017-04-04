@@ -72,7 +72,7 @@ public class CreateFoodActivity extends AppCompatActivity {
                     break;
             }
 
-            top.addFood(type, food_name, calories, protein, carbs, fat);
+            //top.addFood(type, food_name, calories, protein, carbs, fat); //TODO
             saveObject(top);
 
             Context context = getApplicationContext();

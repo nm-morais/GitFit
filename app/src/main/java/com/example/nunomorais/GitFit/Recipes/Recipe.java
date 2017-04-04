@@ -45,7 +45,7 @@ public class Recipe implements Serializable {
             next = (IngredientClass) ingredient_iterator.next();
             this.calories += next.getCalories();
             this.carbs += next.getCarbs();
-            this.proteins += next.getProteins();
+            this.proteins += next.getProtein();
         }
     }
 

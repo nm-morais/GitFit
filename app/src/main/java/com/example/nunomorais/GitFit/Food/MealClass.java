@@ -25,7 +25,7 @@ public class MealClass implements Serializable {
 
             cal += fd.getCalories();
             carbs += fd.getCarbs();
-            protein += fd.getProteins();
+            protein += fd.getProtein();
             fat += fd.getFat();
         }
     }

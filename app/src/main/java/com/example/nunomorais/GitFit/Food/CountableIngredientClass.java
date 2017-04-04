@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 public class CountableIngredientClass extends IngredientClass implements Serializable, CountableIngredient {
 
-    public CountableIngredientClass(String name, int calories, int proteins, int carbs, int fat) {
-        super(name, calories, proteins, carbs, fat);
+    public CountableIngredientClass(String name, int calories, int proteins, int carbs, int fat, int portionSize) {
+        super(name, calories, proteins, carbs, fat, portionSize);
     }
 }

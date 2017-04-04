@@ -119,8 +119,8 @@ public class Gitfit extends Application implements Serializable {
         return this.food_manager.listAllFood();
     }
 
-    public void addFood(String type, String name, int calories, int protein, int carbs, int fat) {
-        food_manager.createFood(type, calories, protein, carbs, fat, name);
+    public void addFood(String type, String name, int calories, int protein, int carbs, int fat, int portionSize) {
+        food_manager.createFood(type, calories, protein, carbs, fat, name, portionSize);
     }
 
     public void setFoodStock(String name, int amount) {
