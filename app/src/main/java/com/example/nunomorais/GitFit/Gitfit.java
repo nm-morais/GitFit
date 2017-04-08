@@ -6,7 +6,7 @@ import com.example.nunomorais.GitFit.Food.Food;
 import com.example.nunomorais.GitFit.Food.FoodManagerClass;
 import com.example.nunomorais.GitFit.Food.IngredientClass;
 import com.example.nunomorais.GitFit.Food.MealClass;
-import com.example.nunomorais.GitFit.Logs.History;
+import com.example.nunomorais.GitFit.Logs.HistoryClass;
 import com.example.nunomorais.GitFit.Logs.Log;
 import com.example.nunomorais.GitFit.Recipes.Recipe;
 import com.example.nunomorais.GitFit.Recipes.RecipeManager;
@@ -23,7 +23,7 @@ public class Gitfit extends Application implements Serializable {
 
     private FoodManagerClass food_manager;
     private RecipeManager recipe_manager;
-    private History history;
+    private HistoryClass history;
     private User user;
     private Log current_log;
 
@@ -31,7 +31,7 @@ public class Gitfit extends Application implements Serializable {
 
         recipe_manager = new RecipeManager();
         food_manager = new FoodManagerClass();
-        history = new History();
+        history = new HistoryClass();
 
 
     }

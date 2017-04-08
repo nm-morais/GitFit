@@ -5,35 +5,36 @@ import com.example.nunomorais.GitFit.NoAvailableLogException;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 
+/**
+ * A history is just a structure of logs, to keep the user's previous logs stored for acess
+ * and analysis of progress
+ */
+interface History extends Serializable {
 
-public class History implements Serializable {
+    /**
+     * adds a log to the history
+     * this process is automated
+     *
+     * @return the inserted log
+     */
+    Log addLog();
+
+    /**
+     * returns the log correspondent to the inserted date
+     *
+     * @param day the day correspondent to the log
+     * @return object Log
+     * @throws NoAvailableLogException
+     */
+    Log getLog(Date day) throws NoAvailableLogException;
 
 
-    private Map<Date, Log> calendar;
-
-    public History() {
-        calendar = new LinkedHashMap<Date, Log>();
-    }
-
-    public Log addLog() {
-        Date date = new Date();
-        return calendar.put(date,new Log(date));
-    }
-
-    public Log getLog(Date day) throws NoAvailableLogException {
-        Log l = calendar.get(day);
-
-        if (l == null) throw new NoAvailableLogException();
-
-        return l;
-    }
-
-    public Iterator<Log> getAllHistory(){
-        return this.calendar.values().iterator();
-    }
-
+    /**
+     * returns an iterator of all the logs until the day
+     *
+     * @return Object iterator
+     */
+    Iterator<Log> getAllHistory();
 }
