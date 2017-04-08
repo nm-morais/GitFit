@@ -1,8 +1,5 @@
 package com.example.nunomorais.GitFit.Food;
 
-/**
- * Created by Leonardo on 25/03/2017.
- */
 
 public abstract class IngredientClass extends FoodClass implements Ingredient {
 

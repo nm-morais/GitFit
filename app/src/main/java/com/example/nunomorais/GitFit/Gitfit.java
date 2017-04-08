@@ -18,9 +18,6 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- * Created by messuped on 3/25/17.
- */
 
 public class Gitfit extends Application implements Serializable {
 

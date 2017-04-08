@@ -6,9 +6,6 @@ import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- * Created by Leonardo on 25/03/2017.
- */
 
 public class Recipe implements Serializable {
 
@@ -42,7 +39,7 @@ public class Recipe implements Serializable {
         Iterator<IngredientClass> ingredient_iterator = ingredientClasses.iterator();
         IngredientClass next = null;
         while (ingredient_iterator.hasNext()) {
-            next = (IngredientClass) ingredient_iterator.next();
+            next = ingredient_iterator.next();
             this.calories += next.getCalories();
             this.carbs += next.getCarbs();
             this.proteins += next.getProtein();

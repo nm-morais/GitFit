@@ -9,7 +9,9 @@ public class FoodManagerClass implements FoodManager {
 
     Map<String, Food> all_food; //all the food
 
-    Map<String, Food> available_ingredients; //constantly updated as stock changes
+    Map<String, Ingredient> available_ingredients; //constantly updated as stock changes
+
+    Map<String, Ingredient> all_ingredients;
 
     public FoodManagerClass() {
         all_food = new TreeMap<>();
@@ -18,40 +20,40 @@ public class FoodManagerClass implements FoodManager {
 
     @Override
     public Food getFood(String name) throws FoodDoesNotExistException {
-        Food food = null;
-        food = all_food.get(name);
+        Food food = all_food.get(name);
         if (food == null) throw new FoodDoesNotExistException();
         return food;
     }
 
     @Override
     public Food removeFood(String name) throws FoodDoesNotExistException {
-        Food toremove = this.getFood(name);
-        if (toremove == null) throw new FoodDoesNotExistException();
-        all_food.remove(toremove);
-        available_ingredients.remove(toremove);
-        return toremove;
+        Food to_remove = this.getFood(name);
+        if (to_remove == null) throw new FoodDoesNotExistException();
+        all_food.remove(to_remove);
+        if (to_remove instanceof Ingredient) available_ingredients.remove(to_remove);
+        return to_remove;
 
     }
 
     @Override
-    public void updateAvailability(String name) throws FoodDoesNotExistException {
+    public void updateAvailability(String name, int ammount_to_remove) throws FoodDoesNotExistException {
         Ingredient ingredient = (Ingredient) this.getFood(name);
         if (ingredient.getStock() < 1) available_ingredients.remove(name);
+        ingredient.setStock(ingredient.getStock() - ammount_to_remove);
     }
 
     @Override
     public boolean isAvailable(String name) throws FoodDoesNotExistException {
-        IngredientClass food = (IngredientClass) this.getFood(name);
+        Ingredient food = (Ingredient) this.getFood(name);
         return food.getStock() >= 1;
 
     }
 
     @Override
     public void SetStockToIngredient(String ingredient, int amount) throws FoodDoesNotExistException {
-        IngredientClass food = (IngredientClass) this.getFood(ingredient);
+        Ingredient food = (Ingredient) this.getFood(ingredient);
         food.setStock(amount);
-        updateAvailability(ingredient);
+        food.setStock(amount);
     }
 
     @Override
@@ -77,7 +79,7 @@ public class FoodManagerClass implements FoodManager {
     }
 
     @Override
-    public Iterator<Food> ListAvailableIngredients() {
+    public Iterator<Ingredient> ListAvailableIngredients() {
         return available_ingredients.values().iterator();
     }
 

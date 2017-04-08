@@ -3,9 +3,6 @@ package com.example.nunomorais.GitFit.Workouts;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by messuped on 3/25/17.
- */
 
 public class Workout {
     private List<Exercise> exercises;

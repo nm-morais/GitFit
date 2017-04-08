@@ -3,17 +3,13 @@ package com.example.nunomorais.GitFit.Food;
 import java.io.Serializable;
 import java.util.Iterator;
 
-/**
- * Created by nunom on 30/03/2017.
- */
-
 interface FoodManager extends Serializable {
 
 
     /**
-     * returns the food by the name that has been specified
+     * returns the food that has the name that has been specified
      *
-     * @param name
+     * @param name the name of the food
      * @return the food where name == name
      * @throws FoodDoesNotExistException
      */
@@ -21,24 +17,63 @@ interface FoodManager extends Serializable {
 
 
     /**
-     * removes the food from all the datastructures that contain it
-     *
+     * removes the food from all the system
      * @param name
      * @return the removed food
      * @throws FoodDoesNotExistException
      */
     Food removeFood(String name) throws FoodDoesNotExistException;
 
+    /**
+     * returns yes if such food is available
+     *
+     * @param name the name of the ingredient in question
+     * @return yes if the food is available
+     * @throws FoodDoesNotExistException
+     */
     boolean isAvailable(String name) throws FoodDoesNotExistException;
 
+
+    /**
+     * sets the stock of the food to the desired ammount
+     * @param ingredient the food to be stocked
+     * @param amount the ammount of units
+     * @throws FoodDoesNotExistException
+     */
     void SetStockToIngredient(String ingredient, int amount) throws FoodDoesNotExistException;
 
+    /**
+     * creates a new ingredient
+     * @param type the type of ingredient
+     * @param calories the calories in each portion
+     * @param proteins the proteins in each portion
+     * @param carbs the carbs in each portion
+     * @param fat the fat in each portion
+     * @param name the name of the food
+     * @param portionSize the portion size
+     * @return the created food
+     */
     Food createFood(String type, int calories, int proteins, int carbs, int fat, String name, int portionSize);
 
-    Iterator<Food> ListAvailableIngredients();
+    /**
+     * lists all the available ingredients in the system
+     *
+     * @return the iterator of available food
+     */
+    Iterator<Ingredient> ListAvailableIngredients();
 
+    /**
+     * lists all food in the system
+     * @return iterator of food, in no specific order
+     */
     Iterator<Food> listAllFood();
 
-    void updateAvailability(String name) throws FoodDoesNotExistException;
+    /**
+     * removes 1 stock from the food (where you use it in meals
+     *
+     * @param name
+     * @throws FoodDoesNotExistException
+     */
+    void updateAvailability(String name, int ammount_to_remove) throws FoodDoesNotExistException;
 
 }

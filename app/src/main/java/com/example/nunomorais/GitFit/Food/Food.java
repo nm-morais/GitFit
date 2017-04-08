@@ -2,15 +2,12 @@ package com.example.nunomorais.GitFit.Food;
 
 import java.io.Serializable;
 
-/**
- * Created by nunom on 30/03/2017.
- */
 
 public interface Food extends Serializable {
 
     /**
      * returns the calorie content per portion size
-     * @return
+     * @return integer calories
      */
     int getCalories();
 
@@ -47,11 +44,11 @@ public interface Food extends Serializable {
 
     /**
      * edits all the food stats
-     * @param portionsize
-     * @param carbs
-     * @param fat
-     * @param protein
-     * @param name
+     * @param portionsize the size of the portion of the food
+     * @param carbs the carbs in each portion
+     * @param fat the fat in each portion
+     * @param protein the protein in each portion
+     * @param name the name of the food
      * @return the edited food
      */
     Food editFood(int calories, int portionsize,int carbs, int fat , int protein, String name );

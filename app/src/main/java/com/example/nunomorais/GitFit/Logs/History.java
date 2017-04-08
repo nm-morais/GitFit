@@ -8,9 +8,6 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * Created by messuped on 3/25/17.
- */
 
 
 public class History implements Serializable {

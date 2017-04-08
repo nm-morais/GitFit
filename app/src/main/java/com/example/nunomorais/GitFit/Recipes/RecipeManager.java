@@ -9,9 +9,6 @@ import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-/**
- * Created by nunomorais on 25/03/2017.
- */
 
 public class RecipeManager implements Serializable {
 
