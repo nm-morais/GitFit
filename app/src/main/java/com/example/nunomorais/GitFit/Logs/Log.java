@@ -9,6 +9,8 @@ import java.util.Date;
 import java.util.Iterator;
 
 interface Log extends Serializable {
+
+
     Iterator<MealClass> getMealClasses();
 
     Iterator<Exercise> getExercises();
