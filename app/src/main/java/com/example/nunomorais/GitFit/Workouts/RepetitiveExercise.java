@@ -1,13 +1,20 @@
 package com.example.nunomorais.GitFit.Workouts;
 
+interface RepetitiveExercise {
 
-public class RepetitiveExercise extends Exercise {
-    private int reps, sets;
 
-    public RepetitiveExercise(String name, int reps) {
-        super(name);
-        this.reps = reps;
-    }
+    /**
+     * returns the ammount of repetitions the user has done of the exercise
+     *
+     * @return
+     */
+    int getReps();
 
+    void setReps(int reps);
+
+
+    int getSets();
+
+    void setSets(int sets);
 
 }

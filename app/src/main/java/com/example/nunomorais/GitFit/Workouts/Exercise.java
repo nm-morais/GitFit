@@ -1,15 +1,8 @@
 package com.example.nunomorais.GitFit.Workouts;
 
+interface Exercise {
 
-public abstract class Exercise {
-    private String name;
+    String getName();
 
-    public Exercise(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
 
 }
