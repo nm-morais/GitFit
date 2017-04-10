@@ -36,7 +36,7 @@ public class LogClass implements Log {
     }
 
     @Override
-    public Iterator<ExerciseClass> getExercises() {
+    public Iterator<Exercise> getExercises() {
         return exercises.iterator();
     }
 

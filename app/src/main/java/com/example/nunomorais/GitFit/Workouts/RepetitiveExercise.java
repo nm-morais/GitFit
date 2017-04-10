@@ -1,20 +1,17 @@
 package com.example.nunomorais.GitFit.Workouts;
 
+import java.util.Iterator;
+
 interface RepetitiveExercise {
 
 
-    /**
-     * returns the ammount of repetitions the user has done of the exercise
-     *
-     * @return
-     */
-    int getReps();
+    Set createSet(int reps, int weight);
 
-    void setReps(int reps);
+    Set deleteSet(int setNumber);
 
+    Set setRepsToSet(int reps);
 
-    int getSets();
+    Iterator<Set> getSets();
 
-    void setSets(int sets);
 
 }

@@ -5,6 +5,8 @@ import java.util.List;
 
 
 public class WorkoutClass implements Workout {
+
+
     private List<ExerciseClass> exercises;
     String name;
 

@@ -1,8 +1,7 @@
 package com.example.nunomorais.GitFit.Workouts;
 
-interface Exercise {
+public interface Exercise {
 
     String getName();
-
 
 }

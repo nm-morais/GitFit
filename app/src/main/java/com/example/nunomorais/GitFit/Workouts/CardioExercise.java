@@ -11,7 +11,7 @@ public interface CardioExercise {
 
 
     /**
-     * sets the duration to the desired ammount
+     * sets the duration to the desired amount
      *
      * @param duration the duration that the user has done the exercise for
      */
