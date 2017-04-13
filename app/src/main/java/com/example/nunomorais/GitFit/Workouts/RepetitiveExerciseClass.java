@@ -1,33 +1,43 @@
 package com.example.nunomorais.GitFit.Workouts;
 
 
-public class RepetitiveExerciseClass extends ExerciseClass implements RepetitiveExercise {
+import java.util.Iterator;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
-    private int sets;
+public class RepetitiveExerciseClass extends ExerciseAbsClass implements RepetitiveExercise {
 
-    public RepetitiveExerciseClass(String name, int reps) {
+    private SortedMap<Integer, Set> sets;
+    private int setCounter;
+
+    public RepetitiveExerciseClass(String name) {
         super(name);
-        this.reps = reps;
+        this.sets = new TreeMap<Integer, Set>();
+        this.setCounter = 0;
     }
 
 
-    public int getReps() {
-        return reps;
+    @Override
+    public Set createSet(int reps, int weight) {
+        Set new_set = new SetClass(reps, weight, this);
+        sets.put(setCounter++, new_set);
+        return new_set;
     }
 
-    public void setReps(int reps) {
-        this.reps = reps;
+    @Override
+    public Set deleteSet(int setNumber) {
+        return sets.remove(setNumber);
     }
 
-    private int reps;
-
-    public int getSets() {
-        return sets;
+    @Override
+    public Set setRepsToSet(int reps, int setNumber) {
+        Set set = sets.get(setNumber);
+        set.setReps(reps);
+        return set;
     }
 
-    public void setSets(int sets) {
-        this.sets = sets;
+    @Override
+    public Iterator<Set> getSets() {
+        return sets.values().iterator();
     }
-
-
 }

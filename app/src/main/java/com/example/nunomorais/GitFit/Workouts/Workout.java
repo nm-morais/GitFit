@@ -1,5 +1,12 @@
 package com.example.nunomorais.GitFit.Workouts;
 
+
+//TODO
 interface Workout {
-    void addExerciseToWorkout(ExerciseClass e);
+
+    void addExerciseToWorkout(Exercise e);
+
+
+
+
 }

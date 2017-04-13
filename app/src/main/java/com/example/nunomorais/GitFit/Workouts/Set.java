@@ -14,6 +14,8 @@ public interface Set {
 
     /**
      * sets the weight the user has done in this set of the exercise
+     *
+     * @param weight the weight to change it to
      */
     void setWeight(int weight);
 
@@ -35,8 +37,10 @@ public interface Set {
 
     /**
      * sets the reps of this set
+     *
+     * @param reps the number of reps to change to
      */
-    void setReps();
+    void setReps(int reps);
 
 
 }

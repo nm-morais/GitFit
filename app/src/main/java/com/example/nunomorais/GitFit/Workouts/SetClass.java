@@ -35,7 +35,7 @@ public class SetClass implements Set {
     }
 
     @Override
-    public void setReps() {
+    public void setReps(int rep) {
         this.reps = reps;
     }
 }
